@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 addons:
   snaps:
     - hugo
@@ -12,5 +12,6 @@ deploy: &pages
   repo: canovie/canovie.github.io
   target_branch: master
   committer_from_gh: true
+  verbose: true
   on:
     branch: master
