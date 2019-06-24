@@ -24,46 +24,58 @@ type = "post"
 
 一般的`sed`用法：
 
-    sed SCRIPT INPUTFILE...
+```bash
+sed SCRIPT INPUTFILE...
+```
 
 
 例，将`input.txt`中的‘hello’全部替换成‘world’：
 
-    sed 's/hello/world/' input.txt > output.txt
+```bash
+sed 's/hello/world/' input.txt > output.txt
+```
 
 
 如果已没有指定INPUTFILE或者INPUTFILE是`-`，`sed`将处理标准输入的内容，下述命令是等价的：
 
-    sed 's/hello/world/' input.txt > output.txt
-    sed 's/hello/world/' < input.txt > output.txt
-    cat input.txt | sed 's/hello/world/' - > output.txt
+```bash
+sed 's/hello/world/' input.txt > output.txt
+sed 's/hello/world/' < input.txt > output.txt
+cat input.txt | sed 's/hello/world/' - > output.txt
+```
 
 
 `sed`默认是将处理结果写到标准输出。使用`-i`参数则是直接修改文件。另见`W`和`s///w`命令将输出写入到其他文件。下述命令将会修改file.txt文件而不会产生任何输出：
 
-    sed -i 's/hello/world' file.txt
+```bash
+sed -i 's/hello/world' file.txt
+```
 
 
 默认情况下，`sed`打印所有的输入（修改和删除除外，比如命令`d`）。用`-n`限制输出，`p`打印特定行。以下命令只打印输入文件的第45行：
 
-    sed -n '45p' file.txt
-
+```bash
+sed -n '45p' file.txt
+```
 
 `sed`将多个输入文件作为一个长的输入流，在下述例子中，将打印第一个文件（one.txt）的第一行和第三个文件（three.txt）的最后一行。可用`-s`反转。
 
-    sed -n  '1p ; $p' one.txt two.txt three.txt
-
+```bash
+sed -n  '1p ; $p' one.txt two.txt three.txt
+```
 
 若没有指定`-e`或者`-f`选项，`sed`使用第一个非选项参数作为执行脚本，接下来的非选项参数作为输入文件。如果使用`-e`或者`-f`指定一个执行脚本，其它所有的非参数选项将作为输入温江。`-e`和`-f`可以结合使用，并且可以多次出现（最终的执行脚本是这些单独脚本连接后的结果）。 下述例子是等价的：
 
-    sed 's/hello/world/' input.txt > output.txt
+```bash
+sed 's/hello/world/' input.txt > output.txt
 
-    sed -e 's/hello/world/' input.txt > output.txt
-    sed --expression='s/hello/world/' input.txt > output.txt
+sed -e 's/hello/world/' input.txt > output.txt
+sed --expression='s/hello/world/' input.txt > output.txt
 
-    echo 's/hello/world/' > myscript.sed
-    sed -f myscript.sed input.txt > output.txt
-    sed --file=myscript.sed input.txt > output.txt
+echo 's/hello/world/' > myscript.sed
+sed -f myscript.sed input.txt > output.txt
+sed --file=myscript.sed input.txt > output.txt
+```
 
 
 #### 2.2 命令行选项
@@ -83,8 +95,10 @@ type = "post"
 
 零退出状态指示成功，非零值表示失败。 GNU sed退出状态，但返回以下错误值： **0** 成功完成 **1** 命令无效，语法无效，正则表达式无效或与`--posix`一起使用的GNU sed的扩展命令。 **2** 命令行上指定的一个或多个输入文件无法打开（例如，如果找不到文件，或者读权限被拒绝）。处理继续与其他文件。 **4** 一个I/O错误或运行时严重的处理错误，GNU sed立即中止。 另外，命令q和Q可以用来以一个自定义的退出代码值来终止sed（这是一个GNU sed扩展）：
 
-    $ echo | sed 'Q42' ; echo $?
-    42
+```bash
+$ echo | sed 'Q42' ; echo $?
+42
+```
 
 
 ### 3 `sed`脚本
@@ -98,35 +112,113 @@ type = "post"
 
 X是单字符的`sed`命令。\[addr\]是一个可选的行地址。如果\[addr\]被指定，则X命令只在指定行执行。\[addr\]可以是一个行号，一个正则表达式也可是一个行范围（参见[`sed`地址](#sed地址)）。其它选项被用于某些`sed`命令。 下述的例子将在输入文件中删除第30至35行。`30,35`是地址范围。`d`是删除命令：
 
-    sed '30,35d' input.txt > output.txt
-
+```bash
+sed '30,35d' input.txt > output.txt
+```
 
 以下示例将打印所有输入，直到找到以“foo”开头的行。如果找到这一行，`sed`将以状态42退出。如果没有找到这样的行（并且没有发生其他错误），则sed将以状态0退出。`/^foo/`是一个正则表达式地址，`q`是退出命令，`42`是命令选项。
 
-    sed '/^foo/q42' input.txt > output.txt
-
+```bash
+sed '/^foo/q42' input.txt > output.txt
+```
 
 脚本或脚本文件中的命令可以用分号（;）或换行符（ASCII 10）分隔。可以使用`-e`或`-f`选项指定多个脚本。 以下例子都是等价的。它们执行两个`sed`操作：删除与正则表达式`/^foo/`匹配的所有行，并用‘`world`’替换所有出现的字符串‘`hello`’：
 
-    sed '/^foo/d ; s/hello/world/' input.txt > output.txt
+```bash
+sed '/^foo/d ; s/hello/world/' input.txt > output.txt
 
-    sed -e '/^foo/d' -e 's/hello/world/' input.txt > output.txt
+sed -e '/^foo/d' -e 's/hello/world/' input.txt > output.txt
 
-    echo '/^foo/d' > script.sed
-    echo 's/hello/world/' >> script.sed
-    sed -f script.sed input.txt > output.txt
+echo '/^foo/d' > script.sed
+echo 's/hello/world/' >> script.sed
+sed -f script.sed input.txt > output.txt
 
-    echo 's/hello/world/' > script2.sed
-    sed -e '/^foo/d' -f script2.sed input.txt > output.txt
-
+echo 's/hello/world/' > script2.sed
+sed -e '/^foo/d' -f script2.sed input.txt > output.txt
+```
 
 命令`a`，`c`，`i`由于它们的语法，所以不能使用作为命令分隔符的分号，因此应该用换行符结尾或是放在脚本或脚本文件的末尾。命令也能以可选的不重要的空白字符开头。请参阅[多命令语法](#多命令语法)。
 
 #### 3.2 `sed`命令汇总
 
-GNU sed支持以下命令。有些是标准的POSIX命令，而另一些是GNU扩展。每个命令的详细信息和示例在以下部分。（助记符）显示在括号内。 `a\`  
-`text` 在一行之后追加文本。 `a text` 在一行之后追加文本（替代语法）。 `b label` 无条件地分支标签。标签可以省略，在这种情况下下一个周期开始。 `c\`  
-`text` 用文本替换（更改）行。 `c text` 用文本替换（更改）行（替代语法）。 `d` 删除模式空间;立即开始下一个周期。 `D` 如果模式空间包含换行符，则删除模式空间中的文本直到第一个换行符，然后用结果模式空间重新启动循环，而不读取新的输入行。如果模式空间不包含换行符，就像`d`命令一样，开始一个正常的新周期。 `e` 执行在模式空间中找到的命令，并用输出替换模式空间；尾随的换行符被压制。 `F` （filename）打印当前输入文件的文件名（带有换行符）。 `g` 用占位空间的内容替换模式空间的内容。 `G` 向模式空间的内容追加换行符，然后将保留空间的内容追加到模式空间的内容。 `h` （hold）将保持空间的内容替换为模式空间的内容。 `H` 追加一个换行符到保存空间的内容，然后将模式空间的内容追加到保存空间的内容。 `i\` `text` 在一行之前插入文本。 `i text` 在一行之前插入文本（替代语法）。 `l` 以确定的形式打印模式空间 `n` （next）如果未禁用自动打印，请打印模式空间，然后用下一行输入替换模式空间。如果没有更多的输入，那么`sed`退出而不处理任何更多的命令。 `N` 向模式空间添加换行符，然后将下一行输入添加到模式空间。如果没有更多的输入，那么`sed`退出而不处理任何更多的命令。 `p` 打印模式空间 `P` 打印模式空间，直到第一个<换行符>。 `q[exit-code]` （quit）退出sed而不处理任何更多的命令或输入。 `Q[exit-code]` （quit）该命令与q相同，但不会打印模式空间的内容。像q一样，它提供了将退出代码返回给调用者的功能。 `r filename` 读文本文件的一个文件。 `R filename` 在当前周期结束时排队读取一行文件名并将其插入到输出流中，或读取下一个输入行时。 `s/regexp/replacement/[flags]` （substitue）匹配正则表达式和模式空间的内容。如果找到，用替换替换匹配的字符串。 `t label` （test）分支只有在自上次输入行被读取或进行了条件分支以来已成功进行替换时才进行标记。标签可以省略，在这种情况下下一个周期开始。 `T label` （test）分支只有在自上一条输入行被读取或条件分支被采用以来没有成功的替换时才被标记。标签可以省略，在这种情况下下一个周期开始。 `v [version]` （version）这个命令什么都不做，但是如果不支持GNU sed扩展，或者如果请求的版本不可用，sed会失败 `w filename` 将模式空间写入文件名。 `W filename` 写入给定的文件名模式空间的部分直到第一个换行符 `x` 交换持有和模式空间的内容。 `y/src/dst/` 将模式空间中所有与任何源字符匹配的字符与目标字符中的对应字符进行替换。 `z` （zap）该命令清空模式空间的内容。 `#` 注释，直到下一个换行。 `{ cmd ; cmd ... }` 将几个命令一起分组。 `=` 打印当前输入行号（带有换行符）。 `: label` 指定分支命令（b，t，T）的标签位置。
+GNU sed支持以下命令。有些是标准的POSIX命令，而另一些是GNU扩展。每个命令的详细信息和示例在以下部分。（助记符）显示在括号内。 
+
+`a\`<br/>
+`text` 在一行之后追加文本。 
+
+`a text` 在一行之后追加文本（替代语法）。 
+
+`b label` 无条件地分支标签。标签可以省略，在这种情况下下一个周期开始。 
+
+`c\`<br/>
+`text` 用文本替换（更改）行。 
+
+`c text` 用文本替换（更改）行（替代语法）。 
+
+`d` 删除模式空间;立即开始下一个周期。 
+
+`D` 如果模式空间包含换行符，则删除模式空间中的文本直到第一个换行符，然后用结果模式空间重新启动循环，而不读取新的输入行。如果模式空间不包含换行符，就像`d`命令一样，开始一个正常的新周期。 
+
+`e` 执行在模式空间中找到的命令，并用输出替换模式空间；尾随的换行符被压制。 
+
+`F` （filename）打印当前输入文件的文件名（带有换行符）。 
+
+`g` 用占位空间的内容替换模式空间的内容。 
+
+`G` 向模式空间的内容追加换行符，然后将保留空间的内容追加到模式空间的内容。 
+
+`h` （hold）将保持空间的内容替换为模式空间的内容。
+
+`H` 追加一个换行符到保存空间的内容，然后将模式空间的内容追加到保存空间的内容。 
+
+`i\`<br/>
+`text` 在一行之前插入文本。 
+
+`i text` 在一行之前插入文本（替代语法）。 
+
+`l` 以确定的形式打印模式空间 
+
+`n` （next）如果未禁用自动打印，请打印模式空间，然后用下一行输入替换模式空间。如果没有更多的输入，那么`sed`退出而不处理任何更多的命令。 
+
+`N` 向模式空间添加换行符，然后将下一行输入添加到模式空间。如果没有更多的输入，那么`sed`退出而不处理任何更多的命令。 
+
+`p` 打印模式空间 
+
+`P` 打印模式空间，直到第一个<换行符>。 
+
+`q[exit-code]` （quit）退出sed而不处理任何更多的命令或输入。 
+
+`Q[exit-code]` （quit）该命令与q相同，但不会打印模式空间的内容。像q一样，它提供了将退出代码返回给调用者的功能。 
+
+`r filename` 读文本文件的一个文件。 
+
+`R filename` 在当前周期结束时排队读取一行文件名并将其插入到输出流中，或读取下一个输入行时。 
+
+`s/regexp/replacement/[flags]` （substitue）匹配正则表达式和模式空间的内容。如果找到，用替换替换匹配的字符串。 
+
+`t label` （test）分支只有在自上次输入行被读取或进行了条件分支以来已成功进行替换时才进行标记。标签可以省略，在这种情况下下一个周期开始。 
+
+`T label` （test）分支只有在自上一条输入行被读取或条件分支被采用以来没有成功的替换时才被标记。标签可以省略，在这种情况下下一个周期开始。 
+
+`v [version]` （version）这个命令什么都不做，但是如果不支持GNU sed扩展，或者如果请求的版本不可用，sed会失败 
+
+`w filename` 将模式空间写入文件名。 
+
+`W filename` 写入给定的文件名模式空间的部分直到第一个换行符 
+
+`x` 交换持有和模式空间的内容。 
+
+`y/src/dst/` 将模式空间中所有与任何源字符匹配的字符与目标字符中的对应字符进行替换。 
+
+`z` （zap）该命令清空模式空间的内容。 
+
+`#` 注释，直到下一个换行。 
+
+`{ cmd ; cmd ... }` 将几个命令一起分组。 
+
+`=` 打印当前输入行号（带有换行符）。 
+
+`: label` 指定分支命令（b，t，T）的标签位置。
 
 #### 3.3 `s`命令
 
