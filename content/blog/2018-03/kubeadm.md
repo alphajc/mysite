@@ -34,36 +34,40 @@ kubernetes可以使用多种容器`runtime`，此处使用当前最常见的`doc
 
 *   Ubuntu/Debian/HypriotOS 从Ubuntu的库安装
 
-        apt-get update
-        apt-get install -y docker.io
-
+    ```bash
+    apt-get update
+    apt-get install -y docker.io
+    ```
 
     使用docker库安装v17.03
 
-        apt-get update
-        apt-get install -y \
-            apt-transport-https \
-            ca-certificates \
-            curl \
-            software-properties-common
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-        add-apt-repository \
-           "deb https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
-           $(lsb_release -cs) \
-           stable"
-        apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
-
+    ```bash
+    apt-get update
+    apt-get install -y \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+    add-apt-repository \
+        "deb https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+        $(lsb_release -cs) \
+        stable"
+    apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
+    ```
 
 *   CentOS/RHEL/Fedora
 
-        yum install -y docker
-        systemctl enable docker && systemctl start docker
-
+    ```bash
+    yum install -y docker
+    systemctl enable docker && systemctl start docker
+    ```
 
 *   Container Linux
 
-        systemctl enable docker && systemctl start docker
-
+    ```bash
+    systemctl enable docker && systemctl start docker
+    ```
 
 
 如果安装速度太慢建议翻墙先把安装包下载回来。 文末附了红帽离线包供下载。
@@ -73,65 +77,71 @@ kubernetes可以使用多种容器`runtime`，此处使用当前最常见的`doc
 
 *   Ubuntu/Debian/HypriotOS
 
-        apt-get update && apt-get install -y apt-transport-https curl
-        curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-        cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-        deb http://apt.kubernetes.io/ kubernetes-xenial main
-        EOF
-        apt-get update
-        apt-get install -y kubelet kubeadm kubectl
-
+    ```bash
+    apt-get update && apt-get install -y apt-transport-https curl
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+    cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+    deb http://apt.kubernetes.io/ kubernetes-xenial main
+    EOF
+    apt-get update
+    apt-get install -y kubelet kubeadm kubectl
+    ```
 
 *   CentOS/RHEL/Fedora
 
-        cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-        [kubernetes]
-        name=Kubernetes
-        baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
-        enabled=1
-        gpgcheck=1
-        repo_gpgcheck=1
-        gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-        EOF
-        setenforce 0
-        yum install -y kubelet kubeadm kubectl
-        systemctl enable kubelet && systemctl start kubelet
-
+    ```bash
+    cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+    [kubernetes]
+    name=Kubernetes
+    baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+    enabled=1
+    gpgcheck=1
+    repo_gpgcheck=1
+    gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    EOF
+    setenforce 0
+    yum install -y kubelet kubeadm kubectl
+    systemctl enable kubelet && systemctl start kubelet
+    ```
 
     确保net.bridge.bridge-nf-call-iptables值为1
 
-        cat <<EOF >  /etc/sysctl.d/k8s.conf
-        net.bridge.bridge-nf-call-ip6tables = 1
-        net.bridge.bridge-nf-call-iptables = 1
-        EOF
-        sysctl --system
-
+    ```bash
+    cat <<EOF >  /etc/sysctl.d/k8s.conf
+    net.bridge.bridge-nf-call-ip6tables = 1
+    net.bridge.bridge-nf-call-iptables = 1
+    EOF
+    sysctl --system
+    ```
 
 *   Container Linux 先安装CNI插件
 
-        CNI_VERSION="v0.6.0"
-        mkdir -p /opt/cni/bin
-        curl -L "https://github.com/containernetworking/plugins/releases/download/${CNI_VERSION}/cni-plugins-amd64-${CNI_VERSION}.tgz" | tar -C /opt/cni/bin -xz
-
+    ```bash
+    CNI_VERSION="v0.6.0"
+    mkdir -p /opt/cni/bin
+    curl -L "https://github.com/containernetworking/plugins/releases/download/${CNI_VERSION}/cni-plugins-amd64-${CNI_VERSION}.tgz" | tar -C /opt/cni/bin -xz
+    ```
 
     安装 kubeadm, kubelet, kubectl 并添加kubelet systemd服务：
 
-        RELEASE="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
+    ```bash
+    RELEASE="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
 
-        mkdir -p /opt/bin
-        cd /opt/bin
-        curl -L --remote-name-all https://storage.googleapis.com/kubernetes-release/release/${RELEASE}/bin/linux/amd64/{kubeadm,kubelet,kubectl}
-        chmod +x {kubeadm,kubelet,kubectl}
+    mkdir -p /opt/bin
+    cd /opt/bin
+    curl -L --remote-name-all https://storage.googleapis.com/kubernetes-release/release/${RELEASE}/bin/linux/amd64/{kubeadm,kubelet,kubectl}
+    chmod +x {kubeadm,kubelet,kubectl}
 
-        curl -sSL "https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/kubelet.service" | sed "s:/usr/bin:/opt/bin:g" > /etc/systemd/system/kubelet.service
-        mkdir -p /etc/systemd/system/kubelet.service.d
-        curl -sSL "https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/10-kubeadm.conf" | sed "s:/usr/bin:/opt/bin:g" > /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-
+    curl -sSL "https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/kubelet.service" | sed "s:/usr/bin:/opt/bin:g" > /etc/systemd/system/kubelet.service
+    mkdir -p /etc/systemd/system/kubelet.service.d
+    curl -sSL "https://raw.githubusercontent.com/kubernetes/kubernetes/${RELEASE}/build/debs/10-kubeadm.conf" | sed "s:/usr/bin:/opt/bin:g" > /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+    ```
 
     enable并启动kubelet
 
-        systemctl enable kubelet && systemctl start kubelet
-
+    ```bash
+    systemctl enable kubelet && systemctl start kubelet
+    ```
 
 
 在主节点上配置kubelet使用的cgroup驱动程序
@@ -139,20 +149,23 @@ kubernetes可以使用多种容器`runtime`，此处使用当前最常见的`doc
 
 确保docker使用的cgroup驱动和kubelet一样
 
-    docker info | grep -i cgroup
-    cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-
+```bash
+docker info | grep -i cgroup
+cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+```
 
 如果不同则，使kubelet与docker的cgroup驱动相同
 
-    sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-
+```bash
+sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+```
 
 重启kubelet
 
-    systemctl daemon-reload
-    systemctl restart kubelet
-
+```bash
+systemctl daemon-reload
+systemctl restart kubelet
+```
 
 文末附了红帽离线包供下载。
 
@@ -166,4 +179,5 @@ kubernetes可以使用多种容器`runtime`，此处使用当前最常见的`doc
 
 ### 资源
 
-CentOS安装kubeadm需要的相关资源: （链接: https://pan.baidu.com/s/1r7-LqH1Ju-5YTAIvRTcIUg 密码: c2nf） 安装kubernetes需要的Docker镜像：（链接: https://pan.baidu.com/s/1fGQtWnuvxJ7pXK5attP8Jw 密码: mty5）
+- CentOS安装kubeadm需要的相关资源：（链接: https://pan.baidu.com/s/1r7-LqH1Ju-5YTAIvRTcIUg 密码: c2nf）
+- 安装kubernetes需要的Docker镜像：（链接: https://pan.baidu.com/s/1fGQtWnuvxJ7pXK5attP8Jw 密码: mty5）

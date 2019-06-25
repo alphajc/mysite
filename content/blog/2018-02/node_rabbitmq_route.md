@@ -25,13 +25,15 @@ type = "post"
 
 在前面的教程中我们已经创建过绑定了，这里我们可以重新使用：
 
-    ch.bindQueue(q.queue, ex, '');
-
+```js
+ch.bindQueue(q.queue, ex, '');
+```
 
 一个绑定将一个交换器和一个队列关联起来。我们可以这样简单理解：队列将会对该交换器里的消息感兴趣。 绑定可以采用额外的绑定键参数（上面代码中的空字符串）。这是我们如何创建一个带key的绑定：
 
-    ch.bindQueue(queue_name, exchange_name, 'black');
-
+```js
+ch.bindQueue(queue_name, exchange_name, 'black');
+```
 
 绑定键的含义取决于交换类型。我们之前使用的`fanout`交换机，简单地忽略了它的值。
 
@@ -47,18 +49,20 @@ type = "post"
 
 我们将使用我们的日志系统模型，以直接交换器代替删除交换器，以日志的严重性级别作为路由键。这样接收脚本可以选择自己想接收的级别的日志。我们先关注发送日志。 我们总需要首先去创建一个交换器：
 
-    var ex = 'direct_logs';
+```js
+var ex = 'direct_logs';
 
-    ch.assertExchange(ex, 'direct', {durable: false});
-
+ch.assertExchange(ex, 'direct', {durable: false});
+```
 
 然后准备发送一个消息：
 
-    var ex = 'direct_logs';
+```js
+var ex = 'direct_logs';
 
-    ch.assertExchange(ex, 'direct', {durable: false});
-    ch.publish(ex, severity, new Buffer(msg));
-
+ch.assertExchange(ex, 'direct', {durable: false});
+ch.publish(ex, severity, new Buffer(msg));
+```
 
 为了简化事情，我们将假定“严重性”可以是`info`，`warning`，`error`之一。
 
@@ -66,83 +70,90 @@ type = "post"
 
 接收消息的方式与上一个教程中的一样，除了一个例外——我们将为每个我们感兴趣的严重级别创建一个新的绑定。
 
-      ch.bindQueue(q.queue, ex, severity);
-    });
-
+```js
+args.forEach(function(severity) {
+  ch.bindQueue(q.queue, exchange, severity);
+});
+```
 
 #### 全部代码
 
 ![](/assets/blog/2018-02/python-four.png) `emit_log_direct.js`脚本的代码：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var ex = 'direct_logs';
-        var args = process.argv.slice(2);
-        var msg = args.slice(1).join(' ') || 'Hello World!';
-        var severity = (args.length > 0) ? args[0] : 'info';
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var ex = 'direct_logs';
+    var args = process.argv.slice(2);
+    var msg = args.slice(1).join(' ') || 'Hello World!';
+    var severity = (args.length > 0) ? args[0] : 'info';
 
-        ch.assertExchange(ex, 'direct', {durable: false});
-        ch.publish(ex, severity, new Buffer(msg));
-        console.log(" [x] Sent %s: '%s'", severity, msg);
-      });
+    ch.assertExchange(ex, 'direct', {durable: false});
+    ch.publish(ex, severity, new Buffer(msg));
+    console.log(" [x] Sent %s: '%s'", severity, msg);
+  });
 
-      setTimeout(function() { conn.close(); process.exit(0) }, 500);
-    });
-
+  setTimeout(function() { conn.close(); process.exit(0) }, 500);
+});
+```
 
 `receive_logs_direct.js`的代码：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
-    var args = process.argv.slice(2);
+var args = process.argv.slice(2);
 
-    if (args.length == 0) {
-      console.log("Usage: receive_logs_direct.js [info] [warning] [error]");
-      process.exit(1);
-    }
+if (args.length == 0) {
+  console.log("Usage: receive_logs_direct.js [info] [warning] [error]");
+  process.exit(1);
+}
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var ex = 'direct_logs';
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var ex = 'direct_logs';
 
-        ch.assertExchange(ex, 'direct', {durable: false});
+    ch.assertExchange(ex, 'direct', {durable: false});
 
-        ch.assertQueue('', {exclusive: true}, function(err, q) {
-          console.log(' [*] Waiting for logs. To exit press CTRL+C');
+    ch.assertQueue('', {exclusive: true}, function(err, q) {
+      console.log(' [*] Waiting for logs. To exit press CTRL+C');
 
-          args.forEach(function(severity) {
-            ch.bindQueue(q.queue, ex, severity);
-          });
-
-          ch.consume(q.queue, function(msg) {
-            console.log(" [x] %s: '%s'", msg.fields.routingKey, msg.content.toString());
-          }, {noAck: true});
-        });
+      args.forEach(function(severity) {
+        ch.bindQueue(q.queue, ex, severity);
       });
-    });
 
+      ch.consume(q.queue, function(msg) {
+        console.log(" [x] %s: '%s'", msg.fields.routingKey, msg.content.toString());
+      }, {noAck: true});
+    });
+  });
+});
+```
 
 如果只想保存“警告”和“错误”（而不是“信息”），则将消息记录到文件中，只需打开控制台并输入:
 
-    ./receive_logs_direct.js warning error > logs_from_rabbit.log
-
+```sh
+./receive_logs_direct.js warning error > logs_from_rabbit.log
+```
 
 如果您想要在屏幕上查看所有日志消息，请打开一个新终端并执行以下操作:
 
-    ./receive_logs_direct.js info warning error
-    # => [*] Waiting for logs. To exit press CTRL+C
-
+```sh
+./receive_logs_direct.js info warning error
+# => [*] Waiting for logs. To exit press CTRL+C
+```
 
 而且，例如，要输出错误日志消息，只需键入：
 
-    ./emit_log_direct.js error "Run. Run. Or it will explode."
-    # => [x] Sent 'error':'Run. Run. Or it will explode.'
-
+```sh
+./emit_log_direct.js error "Run. Run. Or it will explode."
+# => [x] Sent 'error':'Run. Run. Or it will explode.'
+```
 
 转到教程5，了解如何根据模式来侦听消息。

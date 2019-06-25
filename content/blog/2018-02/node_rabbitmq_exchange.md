@@ -41,83 +41,90 @@ type = "post"
 
 我们将在我们的日志系统中使用主题交换器。我们首先假定日志的路由键有两个单词：`<facility>.<severity>`。 这个代码和前一个教程基本一样。 `emit_log_topic.js`：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var ex = 'topic_logs';
-        var args = process.argv.slice(2);
-        var key = (args.length > 0) ? args[0] : 'anonymous.info';
-        var msg = args.slice(1).join(' ') || 'Hello World!';
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var ex = 'topic_logs';
+    var args = process.argv.slice(2);
+    var key = (args.length > 0) ? args[0] : 'anonymous.info';
+    var msg = args.slice(1).join(' ') || 'Hello World!';
 
-        ch.assertExchange(ex, 'topic', {durable: false});
-        ch.publish(ex, key, new Buffer(msg));
-        console.log(" [x] Sent %s:'%s'", key, msg);
-      });
+    ch.assertExchange(ex, 'topic', {durable: false});
+    ch.publish(ex, key, new Buffer(msg));
+    console.log(" [x] Sent %s:'%s'", key, msg);
+  });
 
-      setTimeout(function() { conn.close(); process.exit(0) }, 500);
-    });
-
+  setTimeout(function() { conn.close(); process.exit(0) }, 500);
+});
+```
 
 `receive_logs_topic.js`：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
-    var args = process.argv.slice(2);
+var args = process.argv.slice(2);
 
-    if (args.length == 0) {
-      console.log("Usage: receive_logs_topic.js <facility>.<severity>");
-      process.exit(1);
-    }
+if (args.length == 0) {
+  console.log("Usage: receive_logs_topic.js <facility>.<severity>");
+  process.exit(1);
+}
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var ex = 'topic_logs';
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var ex = 'topic_logs';
 
-        ch.assertExchange(ex, 'topic', {durable: false});
+    ch.assertExchange(ex, 'topic', {durable: false});
 
-        ch.assertQueue('', {exclusive: true}, function(err, q) {
-          console.log(' [*] Waiting for logs. To exit press CTRL+C');
+    ch.assertQueue('', {exclusive: true}, function(err, q) {
+      console.log(' [*] Waiting for logs. To exit press CTRL+C');
 
-          args.forEach(function(key) {
-            ch.bindQueue(q.queue, ex, key);
-          });
-
-          ch.consume(q.queue, function(msg) {
-            console.log(" [x] %s:'%s'", msg.fields.routingKey, msg.content.toString());
-          }, {noAck: true});
-        });
+      args.forEach(function(key) {
+        ch.bindQueue(q.queue, ex, key);
       });
-    });
 
+      ch.consume(q.queue, function(msg) {
+        console.log(" [x] %s:'%s'", msg.fields.routingKey, msg.content.toString());
+      }, {noAck: true});
+    });
+  });
+});
+```
 
 接受所有日志：
 
-    ./receive_logs_topic.js "#"
-
+```bash
+./receive_logs_topic.js "#"
+```
 
 从`kern`中接受所有日志：
 
-    ./receive_logs_topic.js "kern.*"
-
+```sh
+./receive_logs_topic.js "kern.*"
+```
 
 或者，你只想监听`critical`的日志：
 
-    ./receive_logs_topic.js "*.critical"
-
+```sh
+./receive_logs_topic.js "*.critical"
+```
 
 你也可以创建多个绑定：
 
-    ./receive_logs_topic.js "kern.*" "*.critical"
-
+```sh
+./receive_logs_topic.js "kern.*" "*.critical"
+```
 
 发送`kern.critical`类型的日志：
 
-    ./emit_log_topic.js "kern.critical" "A critical kernel error"
-
+```sh
+./emit_log_topic.js "kern.critical" "A critical kernel error"
+```
 
 请注意，代码不会对路由或绑定键作任何假设，您可能需要使用两个以上的路由键参数。 接下来，在教程6中找出如何做一个远程过程调用的往返消息。

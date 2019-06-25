@@ -25,12 +25,13 @@ type = "post"
 
 一般来讲，通过RabbitMQ使用RPC是非常容易的。客户端发送请求消息，服务器回复响应消息。为了收到回应，请求时，我们需要发送一个`callback`队列地址。我们可以使用默认队列。让我们试试看：
 
-    ch.assertQueue('', {exclusive: true});
+```js
+ch.assertQueue('', {exclusive: true});
 
-    ch.sendToQueue('rpc_queue',new Buffer('10'), { replyTo: queue_name });
+ch.sendToQueue('rpc_queue',new Buffer('10'), { replyTo: queue_name });
 
-    # ... then code to read a response message from the callback queue ...
-
+# ... then code to read a response message from the callback queue ...
+```
 
 > **消息属性** AMQP 0-9-1协议预定义了一组与消息一起的14个属性。除了以下属性，大多数属性很少使用： `persistent`：将消息标记为persistent（值为true）或transient（false）。您可能会从第二个教程中了解到这个属性。 `content_type`：用于描述编码的MIME类型。例如，对于经常使用的JSON编码，将此属性设置为`application/json`是一个很好的习惯。 `reply_to`：通常用于命名回调队列。 `correlation_id`：用于将RPC响应与请求相关联。
 
@@ -46,50 +47,52 @@ type = "post"
 
 斐波那契函数：
 
-    function fibonacci(n) {
-      if (n == 0 || n == 1)
-        return n;
-      else
-        return fibonacci(n - 1) + fibonacci(n - 2);
-    }
-
+```js
+function fibonacci(n) {
+  if (n == 0 || n == 1)
+    return n;
+  else
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
 
 我们声明斐波那契函数。它只假定有效的正整数输入（不要指望这个函数可以使用大数字，因为这可能是最慢的递归实现）。 我们的RPC服务器`rpc_server.js`的代码如下所示：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var q = 'rpc_queue';
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var q = 'rpc_queue';
 
-        ch.assertQueue(q, {durable: false});
-        ch.prefetch(1);
-        console.log(' [x] Awaiting RPC requests');
-        ch.consume(q, function reply(msg) {
-          var n = parseInt(msg.content.toString());
+    ch.assertQueue(q, {durable: false});
+    ch.prefetch(1);
+    console.log(' [x] Awaiting RPC requests');
+    ch.consume(q, function reply(msg) {
+      var n = parseInt(msg.content.toString());
 
-          console.log(" [.] fib(%d)", n);
+      console.log(" [.] fib(%d)", n);
 
-          var r = fibonacci(n);
+      var r = fibonacci(n);
 
-          ch.sendToQueue(msg.properties.replyTo,
-            new Buffer(r.toString()),
-            {correlationId: msg.properties.correlationId});
+      ch.sendToQueue(msg.properties.replyTo,
+        new Buffer(r.toString()),
+        {correlationId: msg.properties.correlationId});
 
-          ch.ack(msg);
-        });
-      });
+      ch.ack(msg);
     });
+  });
+});
 
-    function fibonacci(n) {
-      if (n == 0 || n == 1)
-        return n;
-      else
-        return fibonacci(n - 1) + fibonacci(n - 2);
-    }
-
+function fibonacci(n) {
+  if (n == 0 || n == 1)
+    return n;
+  else
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
 
 服务器代码非常简单:
 
@@ -99,57 +102,60 @@ type = "post"
 
 我们的RPC客户端`rpc_client.js`的代码：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
-    var args = process.argv.slice(2);
+var args = process.argv.slice(2);
 
-    if (args.length == 0) {
-      console.log("Usage: rpc_client.js num");
-      process.exit(1);
-    }
+if (args.length == 0) {
+  console.log("Usage: rpc_client.js num");
+  process.exit(1);
+}
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        ch.assertQueue('', {exclusive: true}, function(err, q) {
-          var corr = generateUuid();
-          var num = parseInt(args[0]);
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    ch.assertQueue('', {exclusive: true}, function(err, q) {
+      var corr = generateUuid();
+      var num = parseInt(args[0]);
 
-          console.log(' [x] Requesting fib(%d)', num);
+      console.log(' [x] Requesting fib(%d)', num);
 
-          ch.consume(q.queue, function(msg) {
-            if (msg.properties.correlationId == corr) {
-              console.log(' [.] Got %s', msg.content.toString());
-              setTimeout(function() { conn.close(); process.exit(0) }, 500);
-            }
-          }, {noAck: true});
+      ch.consume(q.queue, function(msg) {
+        if (msg.properties.correlationId == corr) {
+          console.log(' [.] Got %s', msg.content.toString());
+          setTimeout(function() { conn.close(); process.exit(0) }, 500);
+        }
+      }, {noAck: true});
 
-          ch.sendToQueue('rpc_queue',
-          new Buffer(num.toString()),
-          { correlationId: corr, replyTo: q.queue });
-        });
-      });
+      ch.sendToQueue('rpc_queue',
+      new Buffer(num.toString()),
+      { correlationId: corr, replyTo: q.queue });
     });
+  });
+});
 
-    function generateUuid() {
-      return Math.random().toString() +
-             Math.random().toString() +
-             Math.random().toString();
-    }
-
+function generateUuid() {
+  return Math.random().toString() +
+          Math.random().toString() +
+          Math.random().toString();
+}
+```
 
 我们的RPC服务已经准备就绪。我们可以启动服务器：
 
-    ./rpc_server.js
-    # => [x] Awaiting RPC requests
-
+```sh
+./rpc_server.js
+# => [x] Awaiting RPC requests
+```
 
 运行客户端去请求一个斐波那契数字：
 
-    ./rpc_client.js 30
-    # => [x] Requesting fib(30)
-
+```sh
+./rpc_client.js 30
+# => [x] Requesting fib(30)
+```
 
 这里介绍的设计不是RPC服务的唯一可能的实现，但它有一些重要的优点：
 

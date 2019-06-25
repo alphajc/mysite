@@ -34,8 +34,9 @@ RabbitMQ是一个消息broker：它接受和转发消息。你可以把它想象
 
 > **amqp.node客户端库** RabbitMQ提供多种协议。本教程使用AMQP 0-9-1，这是一个开放，通用的消息传递协议。 RabbitMQ有许多不同的语言客户端。我们将在本教程中使用amqp.node客户端。 首先，使用[npm](https://www.npmjs.com/)安装amqp.node：
 
-    npm install amqplib
-
+```bash
+npm install amqplib
+```
 
 现在我们安装了amqp.node，我们可以写一些代码。
 
@@ -43,61 +44,70 @@ RabbitMQ是一个消息broker：它接受和转发消息。你可以把它想象
 
 ![](/assets/blog/2018-02/sending.png) 我们将调用我们的消息发布者（发送者）`send.js`和我们的消息使用者（接收者）`receive.js`。发布者将连接到RabbitMQ，发送一条消息，然后退出。 在send.js中，我们需要首先需要库：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
+```
 
 
 然后连接到RabbitMQ服务器
 
-    amqp.connect('amqp://localhost', function(err, conn) {});
-
+```js
+amqp.connect('amqp://localhost', function(err, conn) {});
+```
 
 接下来我们创建一个频道（channel），这是大部分API所需要做的：
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {});
-    });
+```js
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {});
+});
+```
 
 
 发送，我们必须申报队列给我们发送；然后我们可以发布消息到队列中：
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var q = 'hello';
+```js
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var q = 'hello';
 
-        ch.assertQueue(q, {durable: false});
-        // Note: on Node 6 Buffer.from(msg) should be used
-        ch.sendToQueue(q, new Buffer('Hello World!'));
-        console.log(" [x] Sent 'Hello World!'");
-      });
-    });
+    ch.assertQueue(q, {durable: false});
+    // Note: on Node 6 Buffer.from(msg) should be used
+    ch.sendToQueue(q, new Buffer('Hello World!'));
+    console.log(" [x] Sent 'Hello World!'");
+  });
+});
+```
 
 
 声明一个队列是幂等的——只有当它不存在时才会被创建。消息内容是一个字节数组，所以你可以使用任何编码。 最后，我们关闭连接并退出：
 
-    setTimeout(function() { conn.close(); process.exit(0) }, 500);
-
+```js
+setTimeout(function() { conn.close(); process.exit(0) }, 500);
+```
 
 所以，整个代码如下：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var q = 'hello';
-        var msg = 'Hello World!';
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var q = 'hello';
+    var msg = 'Hello World!';
 
-        ch.assertQueue(q, {durable: false});
-        // Note: on Node 6 Buffer.from(msg) should be used
-        ch.sendToQueue(q, new Buffer(msg));
-        console.log(" [x] Sent %s", msg);
-      });
-      setTimeout(function() { conn.close(); process.exit(0) }, 500);
-    });
-
+    ch.assertQueue(q, {durable: false});
+    // Note: on Node 6 Buffer.from(msg) should be used
+    ch.sendToQueue(q, new Buffer(msg));
+    console.log(" [x] Sent %s", msg);
+  });
+  setTimeout(function() { conn.close(); process.exit(0) }, 500);
+});
+```
 
 > **发送端故障** 如果这是您第一次使用RabbitMQ，并且您没有看到“已发送”消息，那么您可能会不知所措。也许broker启动没有足够的可用磁盘空间（默认情况下，它至少需要200 MB空闲空间），因此拒绝接受消息。检查代理日志文件以确认并在必要时减少限制。[配置文件文档](https://www.rabbitmq.com/configure.html#config-items)将告诉你如何设置`disk_free_limit`。
 
@@ -105,60 +115,66 @@ RabbitMQ是一个消息broker：它接受和转发消息。你可以把它想象
 
 这是我们的接收方。消费者获取从RabbitMQ推送的消息，因此与发布单个消息的发布者不同，我们将持续运行以监听消息并将其打印出来。 ![](https://www.geekare.com/wp-content/uploads/2017/11/receiving.png) 代码（在`receive.js`中）和send有相同的要求：
 
-    #!/usr/bin/env node
+```js
+#!/usr/bin/env node
 
-    var amqp = require('amqplib/callback_api');
-
+var amqp = require('amqplib/callback_api');
+```
 
 设置与发布者相同；我们打开一个连接和一个通道，并声明我们将要使用的队列。注意这与`sendToQueue`发布到的队列相匹配。
 
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var q = 'hello';
+```js
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var q = 'hello';
 
-        ch.assertQueue(q, {durable: false});
-      });
-    });
-
+    ch.assertQueue(q, {durable: false});
+  });
+});
+```
 
 请注意，我们在这里也声明队列。因为我们可能会在发布者之前启动消费者，所以我们希望确保队列存在，然后再试图使用消息。 我们即将告诉服务器将队列中的消息传递给我们。由于它会异步推送消息，因此我们提供了一个回调函数，当RabbitMQ向消费者推送消息时，将执行回调函数。这是`Channel.consume`所做的。
 
+```js
+console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q);
+ch.consume(q, function(msg) {
+  console.log(" [x] Received %s", msg.content.toString());
+}, {noAck: true});
+```
+
+完整`receive.js`如下：
+
+```js
+#!/usr/bin/env node
+
+var amqp = require('amqplib/callback_api');
+
+amqp.connect('amqp://localhost', function(err, conn) {
+  conn.createChannel(function(err, ch) {
+    var q = 'hello';
+
+    ch.assertQueue(q, {durable: false});
     console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q);
     ch.consume(q, function(msg) {
       console.log(" [x] Received %s", msg.content.toString());
     }, {noAck: true});
-
-
-完整`receive.js`如下：
-
-    #!/usr/bin/env node
-
-    var amqp = require('amqplib/callback_api');
-
-    amqp.connect('amqp://localhost', function(err, conn) {
-      conn.createChannel(function(err, ch) {
-        var q = 'hello';
-
-        ch.assertQueue(q, {durable: false});
-        console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q);
-        ch.consume(q, function(msg) {
-          console.log(" [x] Received %s", msg.content.toString());
-        }, {noAck: true});
-      });
-    });
-
+  });
+});
+```
 
 #### 执行
 
 现在我们可以运行这两个脚本。在终端中，运行发布者：
 
-    ./send.js
-
+```bash
+./send.js
+```
 
 然后运行接收者：
 
-    ./receive.js
-
+```bash
+./receive.js
+```
 
 消费者将通过RabbitMQ打印从发布者处获得的消息。消费者将继续运行，等待消息（使用Ctrl-C停止它），所以尝试从另一个终端运行发布者。
 
