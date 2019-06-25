@@ -1,9 +1,29 @@
----
-title: "关于我"
-date: 2018-10-19T19:35:22+08:00
-draft: true
-hasCJKLanguage: true
-toc: true
----
++++
+title = "关于"
+date = "2018-04-09"
++++
 
-人这一生，总得做很多选择，有的错，有的对，但是不管结果如何，迈开步子，才不会留下遗憾。梦想家永远只是活在梦里，只有实干家才配拥有天地。一个有拥有远大目标的我，渴望认识一个同样拥有理想的你。
+Hugo is a static site engine written in Go.
+
+
+It makes use of a variety of open source projects including:
+
+* [Cobra](https://github.com/spf13/cobra)
+* [Viper](https://github.com/spf13/viper)
+* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
+* [Cast](https://github.com/spf13/cast)
+
+Learn more and contribute on [GitHub](https://github.com/spf13).
+
+## Setup
+
+Some fun facts about [Hugo](http://gohugo.io/):
+
+* Built in [Go](http://golang.org/)
+* Loosely inspired by [Jekyll](http://jekyllrb.com/)
+* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
+* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
+
+Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
+
+Thanks for reading!
