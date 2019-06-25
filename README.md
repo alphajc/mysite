@@ -1,9 +1,7 @@
-![编译状态](https://travis-ci.com/canovie/mysite.svg?branch=master)
 # mysite
-使用hugo进行编译的个人网站
+[![Build Status](https://travis-ci.com/canovie/mysite.svg?branch=master)](https://travis-ci.com/canovie/mysite)
 
-https://canovie.github.io
-
-## 1. 记技
-## 2. 记历
-## 3. 记志
+该项目为网站 https://mydream.ink 的模板项目，主要将包含以下几部分内容：
+1. 记技
+2. 记历
+3. 记志
