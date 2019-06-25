@@ -1,10 +1,10 @@
 baseurl = "/"
 languageCode = "zh-cn"
-title = "MY DREAM"
+title = "五口林夕"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
-disqusShortname = "shortname"
+disqusShortname = "mydream"
 googleAnalytics = ""
 pluralizeListTitles = false
 # Set the followings to true as part of your site SEO
@@ -14,15 +14,17 @@ defaultContentLanguage = "zh"
 enableEmoji = true
 enableGitInfo = true
 pygmentsuseclasses = true
-copyright = "© 2019 MY DREAM"
+hasCJKLanguage = true
+copyright = "© 2019 五口林夕"
 
 [params]
   # Sets the meta tag description
   description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
   # Sets the navbarTitle that appears in the top left of the navigation bar
-  navbarTitle          = "Future Imperfect"
+  navbarTitle          = "五口林夕"
   # Sets where "View More Posts" links
   viewMorePostLink     = "/blog/"
+  logo = "/img/main/logo.png"
 
 # Optional Params
   # Sets navbarTitle to match the section of the website
@@ -67,12 +69,12 @@ copyright = "© 2019 MY DREAM"
 
   # options for highlight.js (version, additional languages, and theme)
   disable_highlight = false # set to true to disable Highlight
-  highlightjsVersion = "9.11.0"
+  highlightjsVersion = "9.15.8"
   highlightjsCDN = "//cdn.bootcss.com"
-  highlightjsLang = ["r", "yaml", "css"]
+  highlightjsLang = ["r", "yaml", "css", "javascript", "shell", "bash"]
   highlightjsTheme = "github"
   MathJaxCDN = "//cdn.bootcss.com"
-  MathJaxVersion = "2.7.1"
+  MathJaxVersion = "2.7.5"
 
 # Disqus will take priority over Staticman (github.com/eduardoboucas/staticman)
 # due to its ease of use. Feel free to check out both and decide what you would
@@ -92,7 +94,8 @@ copyright = "© 2019 MY DREAM"
   # These are optional params related to the sidebar. They are recommended, but not
   # required for proper functionality. HTML is supported within the params.
 [params.intro]
-  header    = "Hugo Future Imperfect"
+  header1    = "有吾，有梦，吾梦"
+  header2    = "五口林夕"
 
   paragraph = "Another fine responsive site template by <a href=\"http://html5up.net\">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i>"
 
@@ -101,7 +104,7 @@ copyright = "© 2019 MY DREAM"
   # This appears at the top of the sidebar above params.intro.header.
   # A width of less than 100px is recommended from a design perspective.
   [params.intro.pic]
-    src       = "/img/main/logo.png"
+    src       = "/img/main/portrait.jpg"
     # Sets Image to be a cirlce
     circle    = false
     # Sets Image to be Future Imperfect's hexagon
@@ -113,37 +116,44 @@ copyright = "© 2019 MY DREAM"
 # Sets the number of recent posts to show in the sidebar. The default value is 5.
     sidebar = 5
 
+[menu]
 # Sets the menu items in the navigation bar
 # Identifier prepends a Font Awesome icon to the menu item
-[[menu.main]]
-  name = "主页"
-  url = "/"
-  identifier = "fa fa-home"
-  weight = 1
+    [[menu.main]]
+      name              = "主页"
+      url               = "/"
+      identifier        = "fa fa-home"
+      weight            = 1
 
-[[menu.main]]
-  name = "博客"
-  url = "/blog/"
-  identifier = "fa fa-newspaper-o"
-  weight = 2
+    [[menu.main]]
+      name              = "博客"
+      url               = "/blog/"
+      identifier        = "fa fa-newspaper-o"
+      weight            = 2
 
-[[menu.main]]
-  name = "清单"
-  url = "/itemized/"
-  identifier = "fa fa-list"
-  weight = 3
+    [[menu.main]]
+      name              = "专题"
+      url               = "/itemized/"
+      identifier        = "fa fa-list"
+      weight            = 3
 
-[[menu.main]]
-  name = "类别"
-  url = "/categories/"
-  identifier = "fa fa-sitemap"
-  weight = 4
+    [[menu.main]]
+      name              = "分类"
+      url               = "/categories/"
+      identifier        = "fa fa-sitemap"
+      weight            = 4
 
-[[menu.main]]
-  name = "关于"
-  url = "/about/"
-  identifier = "fa fa-id-card-o"
-  weight = 5
+    [[menu.main]]
+      name              = "留言"
+      url               = "/contact/"
+      identifier        = "fa fa-envelope-o"
+      weight            = 5
+
+    [[menu.main]]
+      name              = "关于"
+      url               = "/about/"
+      identifier        = "fa fa-id-card-o"
+      weight            = 6
 
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted. These are the icons affected by socialAppearAtTop
@@ -171,4 +181,4 @@ copyright = "© 2019 MY DREAM"
 
 
 [permalinks]
-  blog                     = "blog/:year-:month/:slug/"
+  blog                  = "blog/:year-:month/:slug/"
