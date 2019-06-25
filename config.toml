@@ -24,7 +24,7 @@ copyright = "© 2019 五口林夕"
   navbarTitle          = "五口林夕"
   # Sets where "View More Posts" links
   viewMorePostLink     = "/blog/"
-  logo = "/img/main/logo.png"
+  logo = "/img/logo.png"
 
 # Optional Params
   # Sets navbarTitle to match the section of the website
@@ -104,7 +104,7 @@ copyright = "© 2019 五口林夕"
   # This appears at the top of the sidebar above params.intro.header.
   # A width of less than 100px is recommended from a design perspective.
   [params.intro.pic]
-    src       = "/img/main/portrait.jpg"
+    src       = "/img/thumb.jpg"
     # Sets Image to be a cirlce
     circle    = false
     # Sets Image to be Future Imperfect's hexagon
@@ -160,8 +160,8 @@ copyright = "© 2019 五口林夕"
 # and socialAppearAtBottom.
 [social]
   # Coding Communities
-  github           = "canovie/canovie.github.io"
-  stackoverflow    = "" # User Number
+  github           = "canovie"
+  stackoverflow    = "11695297" # User Number
   # Professional/Business Oriented Communities
   linkedin         = "canovie"
   # Social Networks
