@@ -1,0 +1,23 @@
+/*
+  This css file is for individual users to restyle items for their personal site,
+  or for the implementation of features specifically for their site. Anything that
+  is an official part of the theme (ex. Pull Requests) should be included in main.css
+  within the formating given.
+*/
+
+.logo-img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+nav.title.logo {
+  display: flex;
+  justify-content: center;
+}
+
+nav.title.logo > a {
+  display: block;
+  padding: 0 2em;
+}
