@@ -34,18 +34,18 @@
         <ul>
             {{ if $.Scratch.Get "shareNav" }}
             <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
+                <a class="fa-share-alt" href="#share-menu">分享</a>
             </li>
             {{ end }}
             <li class="search">
-                <a class="fa-search" href="#search">Search</a>
+                <a class="fa-search" href="#search">搜索</a>
                 <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
+                    <input type="text" name="q" placeholder="搜索" />
                     <input type="hidden" name="as_sitesearch" value="{{ .Site.BaseURL }}">
                 </form>
             </li>
             <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
+                <a class="fa-bars" href="#menu">菜单</a>
             </li>
         </ul>
     </nav>
@@ -57,7 +57,7 @@
     <!-- Search -->
         <section>
             <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
+                <input type="text" name="q" placeholder="搜索" />
                 <input type="hidden" name="as_sitesearch" value="{{ .Site.BaseURL }}">
             </form>
         </section>
@@ -81,7 +81,7 @@
         <section class="recent-posts">
             <div class="mini-posts">
                 <header>
-                    <h3>Recent Posts</h3>
+                    <h3>最近文章</h3>
                 </header>
                 {{ $.Scratch.Set "recentPosts" .Site.Pages }}
 
@@ -112,7 +112,7 @@
                         {{ else }}
                             "/post/"
                         {{ end }}
-                        class="button">View more posts</a>
+                        class="button">更多文章</a>
                 {{ end }}
             </div>
         </section>

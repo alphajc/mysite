@@ -51,7 +51,7 @@ copyright = "© 2019 五口林夕"
   socialShare          = true
   # Sets specific share to appear on posts (default behavior is to appear)
   socialShareTwitter   = true
-  # socialShareGoogleplus = true
+  socialShareGoogleplus = false
   socialShareFacebook  = true
   socialShareReddit    = true
   socialShareLinkedin  = true
@@ -161,7 +161,7 @@ copyright = "© 2019 五口林夕"
 [social]
   # Coding Communities
   github           = "canovie"
-  stackoverflow    = "11695297" # User Number
+  # stackoverflow    = "11695297" # User Number
   # Professional/Business Oriented Communities
   linkedin         = "canovie"
   # Social Networks
