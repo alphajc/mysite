@@ -123,7 +123,7 @@ copyright = "© 2019 五口林夕"
     [[menu.main]]
       name              = "博客"
       url               = "/blog/"
-      identifier        = "fa fa-newspaper-o"
+      identifier        = "fa fa-blog"
       weight            = 1
 
     [[menu.main]]
@@ -135,12 +135,12 @@ copyright = "© 2019 五口林夕"
     [[menu.main]]
       name              = "分类"
       url               = "/categories/"
-      identifier        = "fa fa-sitemap"
+      identifier        = "fab fa-artstation"
       weight            = 3
     [[menu.main]]
       name              = "关于"
       url               = "/about/"
-      identifier        = "fa fa-id-card-o"
+      identifier        = "fa fa-address-card"
       weight            = 4
 
 # Sets Social Media icons to appear and link to your account. Value should be your
