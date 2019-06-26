@@ -3,8 +3,8 @@ languageCode = "zh-cn"
 title = "五口林夕"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
-paginate = 3
-disqusShortname = "mydream"
+paginate = 5
+disqusShortname = "mydream-ink"
 googleAnalytics = ""
 pluralizeListTitles = false
 # Set the followings to true as part of your site SEO
