@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "mydream.ink"
 languageCode = "zh-cn"
 title = "五口林夕"
 theme = "hugo-future-imperfect"
