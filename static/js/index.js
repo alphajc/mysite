@@ -1,6 +1,6 @@
-var placeholder = document.querySelectorAll('.column.left');
+let placeholder = document.querySelectorAll('.placeholder');
 
-placeholder.forEach(function(item,index,arr){
+placeholder.forEach(function(item){
     (function(){
         var component = item,img = new Image(),
         small = component.querySelector('.small-img');

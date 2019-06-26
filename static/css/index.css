@@ -27,11 +27,11 @@ ul.icons li > * .label {
     text-align: center;
 }
 
-.placeholder-fill{
-    padding-bottom: 66.67%;
+.placeholder img {
+    opacity: 0;
 }
 
-.column.left img.loaded{
+.placeholder img.loaded{
     opacity: 1;
 }
 
