@@ -101,6 +101,7 @@ copyright = "© 2019 五口林夕"
 
   about     = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris."
 
+  author    = "Jerry"
   # This appears at the top of the sidebar above params.intro.header.
   # A width of less than 100px is recommended from a design perspective.
   [params.intro.pic]
@@ -120,40 +121,27 @@ copyright = "© 2019 五口林夕"
 # Sets the menu items in the navigation bar
 # Identifier prepends a Font Awesome icon to the menu item
     [[menu.main]]
-      name              = "主页"
-      url               = "/"
-      identifier        = "fa fa-home"
-      weight            = 1
-
-    [[menu.main]]
       name              = "博客"
       url               = "/blog/"
       identifier        = "fa fa-newspaper-o"
-      weight            = 2
+      weight            = 1
 
     [[menu.main]]
       name              = "专题"
       url               = "/itemized/"
       identifier        = "fa fa-list"
-      weight            = 3
+      weight            = 2
 
     [[menu.main]]
       name              = "分类"
       url               = "/categories/"
       identifier        = "fa fa-sitemap"
-      weight            = 4
-
-    [[menu.main]]
-      name              = "留言"
-      url               = "/contact/"
-      identifier        = "fa fa-envelope-o"
-      weight            = 5
-
+      weight            = 3
     [[menu.main]]
       name              = "关于"
       url               = "/about/"
       identifier        = "fa fa-id-card-o"
-      weight            = 6
+      weight            = 4
 
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted. These are the icons affected by socialAppearAtTop
