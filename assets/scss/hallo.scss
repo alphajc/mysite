@@ -1,0 +1,8 @@
+// Colours
+$color-background: {{ .Site.Params.colors.background | default "#eee" }};
+$color-foreground: {{ .Site.Params.colors.foreground | default "#000" }};
+$color-hover: {{ .Site.Params.colors.hover | default "#333" }};
+
+@import 'hallo/variables';
+@import 'hallo/base';
+@import 'hallo/layout';
