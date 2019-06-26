@@ -28,11 +28,11 @@ ul.icons li > * .label {
 }
 
 .placeholder img {
-    opacity: 0;
+    display: none;
 }
 
 .placeholder img.loaded{
-    opacity: 1;
+    display: inline;
 }
 
 img.small-img{

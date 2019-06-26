@@ -12,10 +12,10 @@ placeholder.forEach(function(item){
         //load large
         var large = new Image();
         large.src = component.dataset.large;
+        large.classList.add('portrait');
         component.append(large);
         large.onload = function () {
             small.remove();
-            large.classList.add('portrait');
             large.classList.add('loaded');
         }
     }())
