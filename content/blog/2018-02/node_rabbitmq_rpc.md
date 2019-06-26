@@ -41,7 +41,9 @@ ch.sendToQueue('rpc_queue',new Buffer('10'), { replyTo: queue_name });
 
 #### 总结
 
-![](/assets/blog/2018-02/python-six.png) 我们的RPC调用像这样： 当客户端启动的时候，它创建一个匿名的独占式回调队列。 对于一个RPC请求，客户端会发送具有这两个属性的消息：`reply_to`，用于设置回调队列；`correlation_id`，作为请求标识。 请求被发送到一个`rpc_queue`队列。 RPC Worker（又名：服务器）在队列上等待请求。当出现一个请求时，它执行这个工作，并使用reply_to字段中的队列将结果发送回客户端。 客户端在回调队列中等待数据。出现消息时，会检查`correlation_id`属性。如果它匹配来自请求的值，则返回对应用程序的响应。
+![](/assets/blog/2018-02/python-six.png) 
+
+我们的RPC调用像这样： 当客户端启动的时候，它创建一个匿名的独占式回调队列。 对于一个RPC请求，客户端会发送具有这两个属性的消息：`reply_to`，用于设置回调队列；`correlation_id`，作为请求标识。 请求被发送到一个`rpc_queue`队列。 RPC Worker（又名：服务器）在队列上等待请求。当出现一个请求时，它执行这个工作，并使用reply_to字段中的队列将结果发送回客户端。 客户端在回调队列中等待数据。出现消息时，会检查`correlation_id`属性。如果它匹配来自请求的值，则返回对应用程序的响应。
 
 #### 全部代码
 

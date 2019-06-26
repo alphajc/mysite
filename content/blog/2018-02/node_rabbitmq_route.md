@@ -39,11 +39,17 @@ ch.bindQueue(queue_name, exchange_name, 'black');
 
 #### 直接交换器（Direct exchange）
 
-我们在前面的教程中创建的日志系统将广播所有的信息给消费者。我们希望扩展这个功能，以便根据消息的严重性来过滤消息。例如我们可能希望将日志写入磁盘的脚本只接收到严重的错误，而不会浪费磁盘去存储`info`和`warning`的日志。 我们之前使用了一个`fanout`交换器，这并没有给我们太大的灵活性——它只能够无意识地广播。 现在我们使用`direct`交换器代替。`direct`交换器背后的路由算法很简单——消息将进入`binding key`与消息的`routing key`完全匹配的队列。 为了阐释清楚，我们可以参考一下示意图： ![](/assets/blog/2018-02/direct-exchange.png) 如图，我们可以看到`direct`交换器`X`绑定了两个队列。第一个队列的绑定键是`orange`，第二个队列有两个绑定，两个绑定键分别是`black`和`green`。 此图中，发布一个路由键为`orange`的消息到交换器中，将被路由到`Q1`队列中。路由键为`black`或者是`green`的消息将路由到`Q2`队列中。所有其他消息将被取消。
+我们在前面的教程中创建的日志系统将广播所有的信息给消费者。我们希望扩展这个功能，以便根据消息的严重性来过滤消息。例如我们可能希望将日志写入磁盘的脚本只接收到严重的错误，而不会浪费磁盘去存储`info`和`warning`的日志。 我们之前使用了一个`fanout`交换器，这并没有给我们太大的灵活性——它只能够无意识地广播。 现在我们使用`direct`交换器代替。`direct`交换器背后的路由算法很简单——消息将进入`binding key`与消息的`routing key`完全匹配的队列。 为了阐释清楚，我们可以参考一下示意图： 
+
+![](/assets/blog/2018-02/direct-exchange.png) 
+
+如图，我们可以看到`direct`交换器`X`绑定了两个队列。第一个队列的绑定键是`orange`，第二个队列有两个绑定，两个绑定键分别是`black`和`green`。 此图中，发布一个路由键为`orange`的消息到交换器中，将被路由到`Q1`队列中。路由键为`black`或者是`green`的消息将路由到`Q2`队列中。所有其他消息将被取消。
 
 #### 多绑定
 
-![](/assets/blog/2018-02/direct-exchange-multiple.png) 相同的绑定键绑定多个队列是完全合法的。在上述例子中，我们完全可以使用绑定键`black`绑定`X`和`Q1`。如此一来这个直接交换器就跟删除交换器一样将会把消息广播给匹配的队列。带有路由键`black`的消息将被同时推送到`Q1`和`Q2`。
+![](/assets/blog/2018-02/direct-exchange-multiple.png) 
+
+相同的绑定键绑定多个队列是完全合法的。在上述例子中，我们完全可以使用绑定键`black`绑定`X`和`Q1`。如此一来这个直接交换器就跟删除交换器一样将会把消息广播给匹配的队列。带有路由键`black`的消息将被同时推送到`Q1`和`Q2`。
 
 #### 发送日志
 
@@ -78,7 +84,9 @@ args.forEach(function(severity) {
 
 #### 全部代码
 
-![](/assets/blog/2018-02/python-four.png) `emit_log_direct.js`脚本的代码：
+![](/assets/blog/2018-02/python-four.png) 
+
+`emit_log_direct.js`脚本的代码：
 
 ```js
 #!/usr/bin/env node

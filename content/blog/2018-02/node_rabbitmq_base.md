@@ -22,8 +22,15 @@ type = "post"
 RabbitMQ是一个消息broker：它接受和转发消息。你可以把它想象成一个邮局：当你把邮件放在邮箱里时，你可以确定邮差先生最终会把邮件发送给你的收件人。在这个比喻中，RabbitMQ是整个邮政系统即信箱、邮局和邮递员。 RabbitMQ与邮局的主要区别是它不处理纸张，而是接受，存储和转发数据的二进制数据块——消息。 RabbitMQ和一般的消息传递使用了一些术语。
 
 > 生产（_producing_）只不过是发送而已。一个发送消息的程序是一个生产者（_producer_）：  
-> ![](/assets/blog/2018-02/producer.png) 队列（_queue_）是RabbitMQ内部的邮箱名称。尽管消息流经RabbitMQ和您的应用程序，但它们只能存储在队列（_queue_）中。队列（_queue_）只受主机的内存和磁盘限制，实质上是一个大的消息缓冲区。许多生产者（_producer_）可以发送消息到一个队列（_queue_），许多消费者（_consumers_）可以尝试从一个队列（_queue_）接收数据。这就是我们代表队列（_queue_）的方式：  
-> ![](/assets/blog/2018-02/queue.png) 消费（_consuming_）与接受有类似的意义。消费者（_consumer_）是主要等待接收消息的程序：  
+> 
+> ![](/assets/blog/2018-02/producer.png) 
+> 
+> 队列（_queue_）是RabbitMQ内部的邮箱名称。尽管消息流经RabbitMQ和您的应用程序，但它们只能存储在队列（_queue_）中。队列（_queue_）只受主机的内存和磁盘限制，实质上是一个大的消息缓冲区。许多生产者（_producer_）可以发送消息到一个队列（_queue_），许多消费者（_consumers_）可以尝试从一个队列（_queue_）接收数据。这就是我们代表队列（_queue_）的方式：  
+> 
+> ![](/assets/blog/2018-02/queue.png) 
+> 
+> 消费（_consuming_）与接受有类似的意义。消费者（_consumer_）是主要等待接收消息的程序：  
+> 
 > ![](/assets/blog/2018-02/consumer.png)
 
 请注意，producer，consumer和broker不必在同一主机上；事实上在大多数应用程序中都不会。
@@ -42,7 +49,9 @@ npm install amqplib
 
 #### 发送端
 
-![](/assets/blog/2018-02/sending.png) 我们将调用我们的消息发布者（发送者）`send.js`和我们的消息使用者（接收者）`receive.js`。发布者将连接到RabbitMQ，发送一条消息，然后退出。 在send.js中，我们需要首先需要库：
+![](/assets/blog/2018-02/sending.png) 
+
+我们将调用我们的消息发布者（发送者）`send.js`和我们的消息使用者（接收者）`receive.js`。发布者将连接到RabbitMQ，发送一条消息，然后退出。 在send.js中，我们需要首先需要库：
 
 ```js
 #!/usr/bin/env node
@@ -113,7 +122,11 @@ amqp.connect('amqp://localhost', function(err, conn) {
 
 #### 接收端
 
-这是我们的接收方。消费者获取从RabbitMQ推送的消息，因此与发布单个消息的发布者不同，我们将持续运行以监听消息并将其打印出来。 ![](https://www.geekare.com/wp-content/uploads/2017/11/receiving.png) 代码（在`receive.js`中）和send有相同的要求：
+这是我们的接收方。消费者获取从RabbitMQ推送的消息，因此与发布单个消息的发布者不同，我们将持续运行以监听消息并将其打印出来。 
+
+![](/assets/blog/2018-02/receiving.webp) 
+
+代码（在`receive.js`中）和send有相同的要求：
 
 ```js
 #!/usr/bin/env node
