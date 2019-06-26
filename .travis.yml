@@ -1,7 +1,8 @@
 dist: xenial
 addons:
   snaps:
-    - hugo
+    - name: hugo
+      channel: extended/stable
 script: hugo
 deploy: &pages
   provider: pages
