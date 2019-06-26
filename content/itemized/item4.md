@@ -7,7 +7,6 @@ description = "Application for doing cool things again."
 featured = ""
 featuredpath = ""
 featuredalt = ""
-categories = [""]
 linktitle = ""
 format = "iOS"
 link = "#"

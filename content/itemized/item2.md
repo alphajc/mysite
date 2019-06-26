@@ -7,7 +7,6 @@ description = "Application for doing cool things."
 featured = ""
 featuredpath = ""
 featuredalt = ""
-categories = [""]
 linktitle = ""
 format = "Golang"
 link = "#"
