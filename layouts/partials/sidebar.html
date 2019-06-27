@@ -19,14 +19,6 @@
         <p>{{ .paragraph | safeHTML }}</p>
       </header>
     {{ end }}
-    {{ if .Site.Params.socialAppearAtTop }}
-      <ul class="icons">
-        {{ if .Site.Params.rssAppearAtTop }}
-          {{ partial "rss-icon" . }}
-        {{ end }}
-        {{ partial "social" . }}
-      </ul>
-    {{ end }}
   </section>
 
   <!-- Posts List -->

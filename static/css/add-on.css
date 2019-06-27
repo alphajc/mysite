@@ -27,18 +27,15 @@ nav.title.logo > a {
   /* font-family:  */
 }
 
-/* author name */
-article.post header .meta span {
-  /* font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif !important; */
-}
-
 /* 分钟读完 */
 .post > header .meta > :last-child {
-  font-family: "Techna Sans Regular", "思源黑体-细" !important;
+  font-family: "Techna Sans Regular", "PingFang SC" !important;
 }
 
-/* 文章正文 */
-article.post h1, article.post h2, article.post h3, article.post h4, article.post h5, article.post h6, article.post ol, article.post ul, article.post p {
-  font-family: "Am Sans Regular", "思源宋体-常规" !important;
-  letter-spacing: 0ch;
+p {
+  font: 15px/25px 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
+}
+
+#intro header p {
+  font-family: '思源黑体-细', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
 }
