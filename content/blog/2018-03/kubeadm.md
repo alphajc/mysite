@@ -20,7 +20,7 @@ kubernetes可以使用多种容器`runtime`，此处使用当前最常见的`doc
 
 在各种机器上安装docker的方式不同，我曾翻译过一篇ubuntu安装docker的文章，还有一些没来的及翻译的，可以参考官方文档。推荐的docker版本为v1.12，v1.11, v1.13 和 17.03 也行，其它的官方就没测试过了，不过我使用当前最新的v18.03也行。
 
-### docker官方
+# docker官方
 
 1.  [使用Ubuntu安装docker-ce](https://www.geekare.com/2018/01/07/ubuntu%E5%AE%89%E8%A3%85-docker%E7%A4%BE%E5%8C%BA%E7%89%88/)
 2.  Mac和Windows桌面安装docker-ce
@@ -30,7 +30,7 @@ kubernetes可以使用多种容器`runtime`，此处使用当前最常见的`doc
 4.  [Fedora安装docker-ce](https://docs.docker.com/install/linux/docker-ce/fedora/)
 5.  [二进制安装方式](https://docs.docker.com/install/linux/docker-ce/binaries/)
 
-### **kubernetes推荐**
+# **kubernetes推荐**
 
 *   Ubuntu/Debian/HypriotOS 从Ubuntu的库安装
 
@@ -177,7 +177,7 @@ systemctl restart kubelet
 
 > yum安装离线资源 docker load 装载离线的docker镜像
 
-### 资源
+# 资源
 
 - CentOS安装kubeadm需要的相关资源：（链接: https://pan.baidu.com/s/1r7-LqH1Ju-5YTAIvRTcIUg 密码: c2nf）
 - 安装kubernetes需要的Docker镜像：（链接: https://pan.baidu.com/s/1fGQtWnuvxJ7pXK5attP8Jw 密码: mty5）

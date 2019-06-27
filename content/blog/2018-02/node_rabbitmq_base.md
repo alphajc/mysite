@@ -13,11 +13,11 @@ type = "post"
 
 +++
 
-### 前提条件
+# 前提条件
 
 本教程假定RabbitMQ已安装并在本地主机的标准端口（5672）上运行。如果您使用不同的主机，端口或凭据，连接设置将需要调整。
 
-### 简介
+# 简介
 
 RabbitMQ是一个消息broker：它接受和转发消息。你可以把它想象成一个邮局：当你把邮件放在邮箱里时，你可以确定邮差先生最终会把邮件发送给你的收件人。在这个比喻中，RabbitMQ是整个邮政系统即信箱、邮局和邮递员。 RabbitMQ与邮局的主要区别是它不处理纸张，而是接受，存储和转发数据的二进制数据块——消息。 RabbitMQ和一般的消息传递使用了一些术语。
 
@@ -35,7 +35,7 @@ RabbitMQ是一个消息broker：它接受和转发消息。你可以把它想象
 
 请注意，producer，consumer和broker不必在同一主机上；事实上在大多数应用程序中都不会。
 
-### (使用amqp.node客户端)
+# (使用amqp.node客户端)
 
 在本教程的这一部分，我们将用Node编写两个小程序；发送单个消息的生产者，以及接收消息并将其打印出来的消费者。我们将详细介绍[amqp.node](https://www.squaremobius.net/amqp.node/) API中的一些细节，将注意力集中在这个非常简单的事情上，以便开始。这是一个消息传递的“Hello World”。 在下图中，“P”是我们的生产者，“C”是我们的消费者。中间的盒子是一个队列——RabbitMQ消费者的消息缓冲区。 ![](/assets/blog/2018-02/python-one.png)
 
@@ -47,7 +47,7 @@ npm install amqplib
 
 现在我们安装了amqp.node，我们可以写一些代码。
 
-#### 发送端
+## 发送端
 
 ![](/assets/blog/2018-02/sending.png) 
 
@@ -120,7 +120,7 @@ amqp.connect('amqp://localhost', function(err, conn) {
 
 > **发送端故障** 如果这是您第一次使用RabbitMQ，并且您没有看到“已发送”消息，那么您可能会不知所措。也许broker启动没有足够的可用磁盘空间（默认情况下，它至少需要200 MB空闲空间），因此拒绝接受消息。检查代理日志文件以确认并在必要时减少限制。[配置文件文档](https://www.rabbitmq.com/configure.html#config-items)将告诉你如何设置`disk_free_limit`。
 
-#### 接收端
+## 接收端
 
 这是我们的接收方。消费者获取从RabbitMQ推送的消息，因此与发布单个消息的发布者不同，我们将持续运行以监听消息并将其打印出来。 
 
@@ -175,7 +175,7 @@ amqp.connect('amqp://localhost', function(err, conn) {
 });
 ```
 
-#### 执行
+## 执行
 
 现在我们可以运行这两个脚本。在终端中，运行发布者：
 

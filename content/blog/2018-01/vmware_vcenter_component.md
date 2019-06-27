@@ -22,7 +22,7 @@ vCenter Server 为虚拟机和主机的管理、操作、资源置备和性能�
 
 > 注：从 vSphere 6.5 开始，所有 vCenter Server 服务和部分 Platform Services Controller 服务作为 VMware Service Lifecycle Manager 服务的子进程运行。
 
-###### 随 VMware Platform Services Controller 一起安装的服务
+# 随 VMware Platform Services Controller 一起安装的服务
 
 **vCenter Single Sign-On**
 
@@ -36,7 +36,7 @@ vSphere License Service 为连接到单个 Platform Services Controller 或多�
 
 默认情况下，VMware Certificate Authority (VMCA) 将使用以 VMCA 作为 root 证书颁发机构的签名证书置备每个 ESXi 主机。以显式方式将 ESXi 主机添加到 vCenter Server 时进行置备，或在 ESXi 主机安装过程中进行置备。所有 ESXi 证书都存储在本地主机上。 有关所有 Platform Services Controller 服务和功能的信息，请参见Platform Services Controller 管理。
 
-###### 随 vCenter Server 一起安装的服务
+# 随 vCenter Server 一起安装的服务
 
 安装 vCenter Server 时，将以静默方式安装这些附加组件。这些组件不能单独安装，因为它们没有其自己的安装程序。 PostgreSQL VMware 分发的用于 vSphere 和 vCloud Hybrid Service 的 PostgreSQL 数据库捆绑版本。 vSphere Web Client 通过 vSphere Web Client，可以使用 Web 浏览器连接到 vCenter Server 实例，以便管理 vSphere 基础架构。 vSphere Client 通过新用户界面，可以使用 Web 浏览器连接到 vCenter Server 实例。术语、拓扑及工作流与 vSphere Web Client 用户界面的相同方面和元素保持高度一致。
 
