@@ -10,6 +10,49 @@
 	gohugo.io | @pacollins
 */
 
+@font-face {
+	font-family: '思源黑体-细';
+	font-display: swap;
+	src: url('//at.alicdn.com/t/webfont_vp4m5cp8xhf.eot'); /* IE9*/
+	src: url('//at.alicdn.com/t/webfont_vp4m5cp8xhf.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//at.alicdn.com/t/webfont_vp4m5cp8xhf.woff2') format('woff2'),
+	url('//at.alicdn.com/t/webfont_vp4m5cp8xhf.woff') format('woff'), /* chrome、firefox */
+	url('//at.alicdn.com/t/webfont_vp4m5cp8xhf.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('//at.alicdn.com/t/webfont_vp4m5cp8xhf.svg#思源黑体-细') format('svg'); /* iOS 4.1- */
+  }
+
+  @font-face {
+	font-family: '思源宋体-常规';
+	font-display: swap;
+	src: url('//at.alicdn.com/t/webfont_uztq9wxze7j.eot'); /* IE9*/
+	src: url('//at.alicdn.com/t/webfont_uztq9wxze7j.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('//at.alicdn.com/t/webfont_uztq9wxze7j.woff2') format('woff2'),
+	url('//at.alicdn.com/t/webfont_uztq9wxze7j.woff') format('woff'), /* chrome、firefox */
+	url('//at.alicdn.com/t/webfont_uztq9wxze7j.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('//at.alicdn.com/t/webfont_uztq9wxze7j.svg#NotoSansHans-DemiLight') format('svg'); /* iOS 4.1- */
+  }
+
+@font-face {
+	font-family: 'Monaco';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Monaco'), url('../fonts/Monaco.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Techna Sans Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Techna Sans Regular'), url('../fonts/TechnaSans-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Am Sans Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Am Sans Regular'), url('../fonts/AMSANSR.woff') format('woff');
+}
+  
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -55,7 +98,7 @@
 	}
 
 	header p {
-		font-family: "Raleway", Helvetica, sans-serif;
+		font-family: "思源黑体-细", "Raleway", Helvetica, sans-serif;
 		font-size: 0.7em;
 		font-weight: 400;
 		letter-spacing: 0.25em;
@@ -258,7 +301,7 @@
 	code {
 		background: rgba(160, 160, 160, 0.075);
 		border: solid 1px rgba(160, 160, 160, 0.3);
-		font-family: "Courier New", monospace;
+		font-family: Monaco, "Courier New", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -327,7 +370,7 @@
 		font-size: 0.6em;
 		font-weight: 400;
 		letter-spacing: 0.25em;
-		text-transform: uppercase;
+		/* text-transform: uppercase; */
 		white-space: nowrap;
 	}
 
@@ -600,7 +643,7 @@
 		.select-wrapper:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: "Font Awesome 5 Free";
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
@@ -660,7 +703,7 @@
 			input[type="radio"] + label:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
-				font-family: FontAwesome;
+				font-family: "Font Awesome 5 Free";
 				font-style: normal;
 				font-weight: normal;
 				text-transform: none !important;
@@ -728,7 +771,7 @@
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: "Font Awesome 5 Free";
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
@@ -1293,7 +1336,7 @@
 				.post > header .meta .published {
 					color: #3c3b3b;
 					display: block;
-					font-family: "Raleway", Helvetica, sans-serif;
+					font-family: "Am Sans Regular", "思源宋体-常规", "Raleway",  Helvetica, sans-serif;
 					font-size: 0.7em;
 					font-weight: 800;
 					letter-spacing: 0.25em;
@@ -2017,7 +2060,7 @@
 							table > tbody > tr > td:first-child:after {
 								float: right;
 								content: "\f107";
-								font-family: FontAwesome;
+								font-family: "Font Awesome 5 Free";
 								font-style: normal;
 								font-weight: normal;
 								text-decoration: inherit;

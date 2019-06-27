@@ -21,3 +21,24 @@ nav.title.logo > a {
   display: block;
   padding: 0 2em;
 }
+
+/* 发表曰期 */
+.post > header .meta .published {
+  /* font-family:  */
+}
+
+/* author name */
+article.post header .meta span {
+  /* font-family: Montserrat, "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif !important; */
+}
+
+/* 分钟读完 */
+.post > header .meta > :last-child {
+  font-family: "Techna Sans Regular", "思源黑体-细" !important;
+}
+
+/* 文章正文 */
+article.post h1, article.post h2, article.post h3, article.post h4, article.post h5, article.post h6, article.post ol, article.post ul, article.post p {
+  font-family: "Am Sans Regular", "思源宋体-常规" !important;
+  letter-spacing: 0ch;
+}
