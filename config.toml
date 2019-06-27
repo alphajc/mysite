@@ -20,8 +20,7 @@ copyright = "© 2019 五口林夕"
 [params]
   # Sets the meta tag description
   description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
-  # Sets the navbarTitle that appears in the top left of the navigation bar
-  navbarTitle          = "五口林夕"
+
   # Sets where "View More Posts" links
   viewMorePostLink     = "/blog/"
   logo = "/img/logo.png"
@@ -97,7 +96,8 @@ copyright = "© 2019 五口林夕"
   header1    = "有吾，有梦，吾梦"
   header2    = "五口林夕"
 
-  paragraph = "Another fine responsive site template by <a href=\"http://html5up.net\">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i>"
+  # paragraph = "Another fine responsive site template by <a href=\"http://html5up.net\">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i>"
+  paragraph = "人的未来需要梦，梦是一个人前进的动力，就像无边黑暗中的一点生的光明。当你失去了这一点光明，你就会发现，你陷入了无边的黑暗，你就会失去生的勇气。"
 
   about     = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris."
 
