@@ -1,29 +1,42 @@
 +++
-title = "关于"
+title = "关于我"
 date = "2018-04-09"
+type = "about"
+netlify = false
+emailservice = "formspree.io/jerry@mydream.ink"
+contactname = "您的姓名"
+contactemail = "您的邮箱"
+contactmessage = "您的留言"
 +++
 
-Hugo is a static site engine written in Go.
+简单介绍一下自己
 
+<hr>
 
-It makes use of a variety of open source projects including:
+# 生活轨迹
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+人生历程
 
-Learn more and contribute on [GitHub](https://github.com/spf13).
+<hr>
 
-## Setup
+# 我在想……
 
-Some fun facts about [Hugo](http://gohugo.io/):
+想什么呢？
 
-* Built in [Go](http://golang.org/)
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
+<hr>
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
+# 很讨厌……
 
-Thanks for reading!
+讨厌的是？
+
+<hr>
+
+# 热衷于……
+
+我想要什么？
+
+<hr>
+
+# 雇佣我
+
+如果你觉得我能为你带来价值，那还等什么呢？
