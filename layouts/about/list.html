@@ -3,7 +3,7 @@
 {{ partial "header" . }}
 {{ partial "navbar" . }}
 <!-- Main -->
-<div id="main">
+<main id="main">
   <article class="post">
     <header>
       <div class="title">
@@ -30,15 +30,16 @@
             {{ end }}
             <h4>如需联系请留言，我将尽快回复您</h4>
             <div class="fields">
-                <fieldset class="field half">
-                  <input placeholder="{{ .Params.contactname }}" type="text" name="name" tabindex="1" required>
-                </fieldset>
-                <fieldset class="field half">
-                  <input placeholder="{{ .Params.contactemail}}" type="email" name="email" tabindex="2" required>
-                </fieldset>
-                <fieldset class="field">
-                  <textarea rows="7" placeholder="{{ .Params.contactmessage}}" name="message" tabindex="3" required></textarea>
-                </fieldset>
+              <fieldset class="field half">
+                <input placeholder="{{ .Params.contactname }}" type="text" name="name" tabindex="1" required>
+              </fieldset>
+              <fieldset class="field half">
+                <input placeholder="{{ .Params.contactemail}}" type="email" name="email" tabindex="2" required>
+              </fieldset>
+              <fieldset class="field">
+                <textarea rows="7" placeholder="{{ .Params.contactmessage}}" name="message" tabindex="3"
+                  required></textarea>
+              </fieldset>
             </div>
             <fieldset>
               <button name="submit" class="button" type="submit" id="contact-submit" tabindex="4">提交</button>
@@ -47,6 +48,6 @@
       </div>
     </div>
   </article>
-</div>
+</main>
 {{ partial "sidebar" . }}
 {{ partial "footer" . }}

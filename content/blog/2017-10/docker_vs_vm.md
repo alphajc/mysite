@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["信息技术"]
 tags = ["docker", "vm"]
 date = "2017-10-11T08:54:08+08:00"
 description = "虚拟化与容器化的简单对比"

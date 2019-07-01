@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["信息技术"]
 tags = ["RabbitMQ", "Middleware", "Node.js"]
 date = "2018-02-13T08:52:19+08:00"
 description = "node使用rabbitmq系列的第3篇文章，主要介绍rabbitmq的发布与订阅功能。"

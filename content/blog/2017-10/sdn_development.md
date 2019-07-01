@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["信息技术"]
 tags = ["SDN"]
 date = "2017-10-22T08:54:08+08:00"
 description = "本文谈论了软件定义网络的发展情况"

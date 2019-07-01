@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["信息技术"]
 tags = ["K8S", "Container", "Docker"]
 date = "2018-03-09"
 description = "使用kubeadm安装kubernetes集群的方式"

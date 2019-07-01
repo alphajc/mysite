@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["信息技术"]
 tags = ["OpenStack", "Ironic"]
 date = "2017-12-11T08:54:08+08:00"
 description = "本文简单介绍了OpenStack的裸机服务模块ironic"

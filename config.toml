@@ -1,6 +1,6 @@
 baseurl = "https://mydream.ink/"
 languageCode = "zh-cn"
-title = "五口林夕"
+title = "跃心"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
@@ -15,11 +15,11 @@ enableEmoji = true
 enableGitInfo = true
 pygmentsuseclasses = true
 hasCJKLanguage = true
-copyright = "© 2019 五口林夕"
+copyright = "© 2019 跃心"
 
 [params]
   # Sets the meta tag description
-  description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
+  description          = "本站记录陈家俊逐梦路上的点点滴滴，包括但不限于技术、生活感悟、读书笔记等等。"
 
   # Sets where "View More Posts" links
   viewMorePostLink     = "/blog/"
@@ -93,8 +93,7 @@ copyright = "© 2019 五口林夕"
   # These are optional params related to the sidebar. They are recommended, but not
   # required for proper functionality. HTML is supported within the params.
 [params.intro]
-  header1    = "有吾，有梦，吾梦"
-  header2    = "五口林夕"
+  header    = "心比天高，命由行定"
 
   # paragraph = "Another fine responsive site template by <a href=\"http://html5up.net\">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i>"
   paragraph = "人的未来需要梦，梦是一个人前进的动力，就像无边黑暗中的一点生的光明。当你失去了这一点光明，你就会发现，你陷入了无边的黑暗，你就会失去生的勇气。"

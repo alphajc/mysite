@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["信息技术"]
 tags = ["RabbitMQ", "Middleware", "Node.js"]
 date = "2018-02-16T08:52:19+08:00"
 description = "node使用rabbitmq系列的第6篇文章，也是最后一遍文章，主要介绍rabbitmq的RPC。"
