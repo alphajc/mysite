@@ -77,10 +77,10 @@ _唯愿君心似我心，与君识共奋进_
 
 # 很讨厌……
 
+- 浪费、不自知、知甚少、势力眼、没格局:angry:
 - 韭菜、鱼腥草、苦瓜、萝卜:confounded:
 - 荔枝、桂圆、芒果、哈密瓜:fearful:
 - 二手烟、白酒:scream:
-- 浪费、不自知、知甚少、势力眼、没格局:angry:
 - 一切脏乱、不收拾:unamused:
 
 ---
@@ -91,7 +91,6 @@ _唯愿君心似我心，与君识共奋进_
 - 学以致用、解决难题「别人处理不了的最佳:smirk:」
 - 思考「:point_right:吃饭思考:point_right:睡觉思考:point_right:走路思考」
 - 烹饪、羽毛球、一切惊险刺激的活动、NBA:satisfied:
-- 吃「我只负责吃，不负责买:stuck_out_tongue_closed_eyes:」
 
 ---
 
