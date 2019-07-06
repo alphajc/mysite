@@ -135,3 +135,7 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
   text-transform: uppercase;
   white-space: nowrap;
 }
+
+.archive>header .meta> a, .post > header .meta > a {
+  font-size: 0.6em
+}

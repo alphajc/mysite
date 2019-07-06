@@ -127,9 +127,9 @@ copyright = "© 2019 跃心"
       weight            = 1
 
     [[menu.main]]
-      name              = "专题"
-      url               = "/itemized/"
-      identifier        = "fa fa-list"
+      name              = "转载"
+      url               = "/archive/"
+      identifier        = "fa fa-archive"
       weight            = 2
 
     [[menu.main]]

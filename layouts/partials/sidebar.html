@@ -21,6 +21,23 @@
     {{ end }}
   </section>
 
+  <section id="tags">
+    <header>
+      <h3>标签</h3>
+    </header>
+      {{ if .Site.Params.tagsByCount }}
+        {{ $.Scratch.Set "tags" .Site.Taxonomies.tags.ByCount }}
+      {{ else }}
+        {{ $.Scratch.Set "tags" .Site.Taxonomies.tags.Alphabetical }}
+      {{ end }}
+
+      <p>
+        {{ range $key, $value := $.Scratch.Get "tags" }}
+        <a href="/tags/{{ $value.Name | urlize }}/">{{ $value.Name }}</a>&nbsp;
+        {{ end }}
+      </p>
+  </section>
+
   <!-- Posts List -->
   <section class="recent-posts">
     <div class="mini-posts">
