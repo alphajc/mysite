@@ -3,7 +3,7 @@
 {{ partial "header" . }}
     {{ partial "navbar" . }}
     <!-- Main -->
-    <div id="main tags">
+    <div id="main" class="tags">
         <h1>{{ .Title }}</h1>
         {{ $paginator := .Paginate (where .Data.Pages "Type" "!=" "about") }}
         {{ range $paginator.Pages }}

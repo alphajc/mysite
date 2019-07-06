@@ -2255,6 +2255,7 @@ body.is-menu-visible #wrapper {
 	-ms-flex-grow: 1;
 	flex-grow: 1;
 	-ms-flex: 1;
+	flex: 1;
 	width: 100%;
 }
 
