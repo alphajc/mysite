@@ -5,7 +5,7 @@
     <!-- Main -->
     <div id="main" class="categories">
         <h1>{{ .Title }}</h1>
-        {{ $paginator := .Paginate (where .Data.Pages "Type" "!=" "about") }}
+        {{ $paginator := .Paginate (where .Data.Pages "Type" "!=" "about") 5 }}
         {{ range $paginator.Pages }}
             {{ .Render "content-list" }}
         {{ end }}

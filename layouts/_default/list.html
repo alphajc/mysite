@@ -1,0 +1,22 @@
+{{ partial "general-title" . }}
+
+{{ partial "header" . }}
+{{ partial "navbar" . }}
+<!-- Main -->
+<div id="main">
+    {{ if .Params.paginate }}
+        {{ $paginator := .Paginate .Data.Pages .Params.paginate }}
+        {{ range $paginator.Pages }}
+            {{ .Render "content-list" }}
+        {{ end }}
+    {{ else }}
+        {{ $paginator := .Paginate .Data.Pages }}
+        {{ range $paginator.Pages }}
+            {{ .Render "content-list" }}
+        {{ end }}
+    {{ end }}
+
+    {{ partial "pagination" . }}
+</div>
+{{ partial "sidebar" . }}
+{{ partial "footer" . }}
