@@ -6,10 +6,10 @@
 */
 
 .logo-img {
-	width: auto;
-	height: auto;
-	max-width: 100%;
-	max-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 nav.title.logo {
@@ -17,18 +17,20 @@ nav.title.logo {
   justify-content: center;
 }
 
-nav.title.logo > a {
+nav.title.logo>a {
   display: block;
   padding: 0 2em;
 }
 
 /* 发表曰期 */
-.post > header .meta .published {
+
+.post>header .meta .published {
   /* font-family:  */
 }
 
 /* 分钟读完 */
-.post > header .meta > :last-child {
+
+.post>header .meta> :last-child {
   font-family: "Techna Sans Regular", "PingFang SC" !important;
 }
 
@@ -40,36 +42,36 @@ p {
   font-family: '思源黑体-细', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
 }
 
-
 form {
   margin: 0 0 2rem 0;
 }
 
-@media screen and (max-width: 1152px)
-#content contact-container > :last-child {
+@media screen and (max-width: 1152px) {
+  #content contact-container> :last-child {
     margin-bottom: 0;
+  }
 }
 
 input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="search"], input[type="url"], select, textarea {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    border-radius: 0.325rem;
-    border: solid 2px rgba(144, 144, 144, 0.25);
-    color: inherit;
-    display: block;
-    outline: 0;
-    padding: 0 1rem;
-    text-decoration: none;
-    width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border-radius: 0.325rem;
+  border: solid 2px rgba(144, 144, 144, 0.25);
+  color: inherit;
+  display: block;
+  outline: 0;
+  padding: 0 1rem;
+  text-decoration: none;
+  width: 100%;
 }
 
 input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="search"], input[type="url"] {
   height: 3rem;
 }
 
-form > .fields {
+form>.fields {
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -82,7 +84,7 @@ form > .fields {
   width: calc(100% + 4rem);
 }
 
-form > .fields > .field > :last-child {
+form>.fields>.field> :last-child {
   margin-bottom: 0;
 }
 
@@ -90,7 +92,7 @@ textarea {
   padding: 0.75rem 1rem;
 }
 
-form > .fields > .field {
+form>.fields>.field {
   -moz-flex-grow: 0;
   -webkit-flex-grow: 0;
   -ms-flex-grow: 0;
@@ -103,7 +105,7 @@ form > .fields > .field {
   width: calc(100% - 2rem);
 }
 
-form > .fields > .field.half {
+form>.fields>.field.half {
   width: calc(50% - 1rem);
 }
 
@@ -136,7 +138,7 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
   white-space: nowrap;
 }
 
-.archive>header .meta> a, .post > header .meta > a {
+.archive>header .meta>a, .post>header .meta>a {
   font-size: 0.6em
 }
 
