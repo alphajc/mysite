@@ -73,23 +73,23 @@ IP分配：
 
 1. 在每一台路由机器上启动配置服务器（非第一次启动加`--logappend`）
 
-    mongod –configsvr --replSet cfgsvr –port 17000 –dbpath /home/ubuntu/data/mongodb/config/data  --logpath /home/ubuntu/data/mongodb/config/log/config.log –fork
+        mongod –configsvr --replSet cfgsvr –port 17000 –dbpath /home/ubuntu/data/mongodb/config/data  --logpath /home/ubuntu/data/mongodb/config/log/config.log –fork
 
 2. 登录任意一台配置服务器，初始化配置副本集
 
-    mongo 127.0.0.1:17000
+        mongo 127.0.0.1:17000
 
-    > config = {_id:"cfgsvr", configsvr:true, members:[
+        > config = {_id:"cfgsvr", configsvr:true, members:[
+        
+        {_id:0, host:"192.168.80.61:17000"},
 
-    {_id:0, host:"192.168.80.61:17000"},
+        {_id:0, host:"192.168.80.62:17000"},
 
-    {_id:0, host:"192.168.80.62:17000"},
+        {_id:0, host:"192.168.80.63:17000"}
 
-    {_id:0, host:"192.168.80.63:17000"}
+        ]}
 
-    ]}
-
-    > rs.initiate(config)
+        > rs.initiate(config)
 
 # 五、启动分片
 
