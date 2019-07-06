@@ -166,7 +166,3 @@ copyright = "© 2019 跃心"
   telegram         = "canovie"
   # Email
   email            = "jerry@mydream.ink"
-
-
-[permalinks]
-  blog                  = "blog/:year-:month/:slug/"
