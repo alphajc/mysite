@@ -139,3 +139,26 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
 .archive>header .meta> a, .post > header .meta > a {
   font-size: 0.6em
 }
+
+.markdown blockquote:first-child {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 2.5em 0;
+  padding: 0 0 0 50px;
+  font-style: italic;
+  color: #555555;
+  border-left: none;
+}
+
+.markdown blockquote:first-child:before {
+  content: '“';
+  display: block;
+  font-family: times, sans-serif;
+  font-style: normal;
+  font-size: 48px;
+  color: #444444;
+  font-weight: bold;
+  line-height: 30px;
+  margin-left: -50px;
+  position: absolute;
+}

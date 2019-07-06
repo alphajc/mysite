@@ -6,9 +6,9 @@ categories = ["信息技术"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://zhuanlan.zhihu.com/p/25594963"
 linktitle = "原文链接"
-featured = "v2-ce171d1e866d10af2ebadfb5f51249b2_1200x500.jpg"
+featured = "sharded-cluster-production-architecture.bakedsvg.svg"
 featuredalt = ""
-featuredpath = "https://pic1.zhimg.com"
+featuredpath = "https://docs.mongodb.com/v3.4/_images"
 format = "知乎"
 title = "MongoDB3.4副本集分片集群搭建"
 type = "archive"
@@ -28,7 +28,7 @@ mongodb版本：mongodb-3.4
 
 # 二、布局预览
 
-![](https://pic4.zhimg.com/80/v2-8062f692d687cad20536d3e44c1bf1fb_hd.png)
+![](/assets/archive/v2-8062f692d687cad20536d3e44c1bf1fb_hd.png)
 
 # 三、资源分配
 
@@ -54,7 +54,7 @@ IP分配：
 
 表1:
 
-![](https://pic2.zhimg.com/80/v2-7049f11c786ea34e9f2969c60c84ef6d_hd.png)
+![](/assets/archive/v2-7049f11c786ea34e9f2969c60c84ef6d_hd.png)
 
 三台主机分别新建如下目录：
 

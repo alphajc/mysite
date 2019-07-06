@@ -1,6 +1,6 @@
 baseurl = "https://mydream.ink/"
 languageCode = "zh-cn"
-title = "跃心"
+title = "青云卷"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
@@ -15,7 +15,7 @@ enableEmoji = true
 enableGitInfo = true
 pygmentsuseclasses = true
 hasCJKLanguage = true
-copyright = "© 2019 跃心"
+copyright = "© 2019 青云卷"
 
 [params]
   # Sets the meta tag description
