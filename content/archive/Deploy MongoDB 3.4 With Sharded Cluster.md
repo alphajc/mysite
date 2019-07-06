@@ -19,7 +19,7 @@ mongdb3.4 的副本集搭建与以前的版本有些区别，最主要的区别�
 
 搭建时遇到不少坑，几乎放弃的情况下，借助谷歌翻译查看了官方文档，问题迎刃而解。
 
-官方文档：[Sharding - MongoDB Manual 3.4](https://link.zhihu.com/?target=https%3A//docs.mongodb.com/manual/sharding/)
+官方文档：[Sharding - MongoDB Manual 3.4](https://docs.mongodb.com/v3.4/sharding/)
 
 # 一、测试环境
 
