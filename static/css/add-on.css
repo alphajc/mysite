@@ -22,20 +22,10 @@ nav.title.logo>a {
   padding: 0 2em;
 }
 
-/* 发表曰期 */
-
-.post>header .meta .published {
-  /* font-family:  */
-}
-
 /* 分钟读完 */
 
 .post>header .meta> :last-child {
   font-family: "Techna Sans Regular", "PingFang SC" !important;
-}
-
-p {
-  font: 15px/25px 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
 }
 
 #intro header p {
@@ -142,7 +132,7 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
   font-size: 0.6em
 }
 
-.markdown blockquote:first-child {
+.about-md blockquote:first-child {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 2.5em 0;
@@ -152,7 +142,7 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
   border-left: none;
 }
 
-.markdown blockquote:first-child:before {
+.about-md blockquote:first-child:before {
   content: '“';
   display: block;
   font-family: times, sans-serif;
@@ -163,4 +153,111 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
   line-height: 30px;
   margin-left: -50px;
   position: absolute;
+}
+
+.markdown ol {
+  list-style-type: cjk-decimal
+}
+
+/* 360 line */
+
+.markdown ol, .markdown ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.markdown ol ol, .markdown ul ol {
+  list-style-type: upper-roman;
+}
+
+.markdown ol ul, .markdown ul ul {
+  list-style-type: circle;
+}
+
+.markdown ol ol ol, .markdown ol ul ol, .markdown ul ol ol, .markdown ul ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown ol ol ul, .markdown ol ul ul, .markdown ul ol ul, .markdown ul ul ul {
+  list-style-type: square;
+}
+
+.markdown ol ol ol ol, .markdown ol ol ul ol, .markdown ol ul ol ol, .markdown ol ul ul ol, .markdown ul ol ol ol, .markdown ul ol ul ol, .markdown ul ul ol ol, .markdown ul ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+/* 523 line */
+
+.markdown ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+/* 607 line */
+
+.markdown ol, .markdown ul {
+  padding-left: 2em;
+}
+
+.markdown ol ol, .markdown ol ul, .markdown ul ol, .markdown ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown li {
+  word-wrap: break-all;
+}
+
+.markdown li>p {
+  margin-top: 16px;
+}
+
+.markdown li+li {
+  margin-top: .25em;
+}
+
+/* code */
+article code {
+  background-color: #eee;
+  border-radius: 5px;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-size: 80%;
+  margin: 0 2px;
+  padding: 4px 5px;
+  vertical-align: middle;
+}
+
+.markdown table {
+  border-collapse: collapse;
+  border-top: solid 3px #000;
+  margin-top: 18px;
+  width: 100%;
+}
+.markdown table th, .markdown table td {
+  font-size: 15px;
+  line-height: 20px;
+  padding: 10px 18px 8px 0;
+}
+.markdown table thead th, .markdown table thead td {
+  font-family: Quattrocento, serif;
+  padding-top: 7px;
+}
+.markdown table tfoot th, .markdown table tfoot td {
+  padding-bottom: 8px;
+}
+.markdown table th:first-child, .markdown table td:first-child {
+  padding-left: 0;
+}
+.markdown table th:last-child, .markdown table td:last-child {
+  padding-right: 0;
+}
+.markdown table tbody tr:nth-child(odd) th,
+.markdown table tbody tr:nth-child(odd) td {
+  background: rgba(0, 0, 0, 0.035);
+}
+.markdown table caption {
+  color: rgba(0, 0, 0, 0.7);
+  top: 5px;
+  margin-bottom: 18px;
 }

@@ -274,7 +274,7 @@ blockquote p {
 
 code {
 	background: rgba(160, 160, 160, 0.075);
-	border: solid 1px rgba(160, 160, 160, 0.3);
+	/* border: solid 1px rgba(160, 160, 160, 0.3); */
 	font-family: Monaco, Consolas, "Courier New", monospace;
 	font-size: 0.9em;
 	margin: 0 0.25em;
@@ -1734,7 +1734,7 @@ article.post header .title p, article.post header .meta p, article.post header .
 	opacity: 0.70;
 }
 
-article.post p, article.post ol, article.post h2, article.post h3, article.post h4 {
+article.post p, article.post ol, article.post ul, article.post h2, article.post h3, article.post h4 {
 	color: #333333;
 	/* Theoretically for IE 8 & 9 (more valid) */
 	/* ...but not required as filter works too */
@@ -1745,6 +1745,10 @@ article.post p, article.post ol, article.post h2, article.post h3, article.post 
 	filter: alpha(opacity=87);
 	/* Modern Browsers */
 	opacity: 0.87;
+}
+
+#content p, #content ol, #content ul {
+	font: 15px/25px 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
 }
 
 /* Table */
