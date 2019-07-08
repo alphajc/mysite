@@ -156,10 +156,6 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
   position: absolute;
 }
 
-.markdown ol {
-  list-style-type: cjk-decimal
-}
-
 /* 360 line */
 
 .markdown ol, .markdown ul {
