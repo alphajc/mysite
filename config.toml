@@ -18,7 +18,7 @@ hasCJKLanguage = true
 
 [author]
   name = "Jerry Chan"
-  
+
 [params]
   # Sets the meta tag description
   description          = "本站记录陈家俊逐梦路上的点点滴滴，包括但不限于技术、生活感悟、读书笔记等等。"
@@ -74,8 +74,8 @@ hasCJKLanguage = true
   highlightjsCDN = "//cdn.bootcss.com"
   highlightjsLang = ["yaml", "css", "javascript", "shell", "bash", "go", "python", "nginx", "ini", "http", "dockerfile", "sql"]
   highlightjsTheme = "github"
-  MathJaxCDN = "//cdn.bootcss.com"
-  MathJaxVersion = "2.7.5"
+  # MathJaxCDN = "//cdn.bootcss.com"
+  # MathJaxVersion = "2.7.5"
 
 # Disqus will take priority over Staticman (github.com/eduardoboucas/staticman)
 # due to its ease of use. Feel free to check out both and decide what you would
@@ -155,16 +155,16 @@ hasCJKLanguage = true
   # Professional/Business Oriented Communities
   linkedin         = "canovie"
   # Social Networks
-  facebook         = "canovie"
-  reddit           = "jerry_geek"
+  # facebook         = "canovie"
+  # reddit           = "jerry_geek"
   quora            = ""
   youtube          = ""
     # WeChat and QQ need testing.
-    wechat         = "geek_jerry"
+    # wechat         = "geek_jerry"
     qq             = "1398388856" # User ID Number
-  instagram        = "_canovie"
-  twitter          = "_canovie"
-  pinterest        = "canovie"
+  # instagram        = "_canovie"
+  # twitter          = "_canovie"
+  # pinterest        = "canovie"
   telegram         = "canovie"
   # Email
   email            = "jerry@mydream.ink"
