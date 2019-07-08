@@ -1,6 +1,6 @@
 +++
 title = "关于我"
-date = "2018-04-09"
+date = "2019-07-01T10:00:00+08:00"
 type = "about"
 netlify = false
 emailservice = "formspree.io/jerry@mydream.ink"

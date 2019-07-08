@@ -15,8 +15,10 @@ enableEmoji = true
 enableGitInfo = true
 pygmentsuseclasses = true
 hasCJKLanguage = true
-copyright = "© 2019 青云卷"
 
+[author]
+  name = "Jerry Chan"
+  
 [params]
   # Sets the meta tag description
   description          = "本站记录陈家俊逐梦路上的点点滴滴，包括但不限于技术、生活感悟、读书笔记等等。"
@@ -111,7 +113,7 @@ copyright = "© 2019 青云卷"
     # Sets Image to be Future Imperfect's hexagon
     imperfect = true
     width     = ""
-    alt       = "Hugo Future Imperfect"
+    alt       = "Future Human"
 
 [params.postAmount]
 # Sets the number of recent posts to show in the sidebar. The default value is 5.
