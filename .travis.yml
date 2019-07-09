@@ -2,7 +2,7 @@ dist: xenial
 addons:
   snaps:
     - name: hugo
-      channel: latest/edge
+      channel: extended/edge
 # before_install:
 #   - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 #   - test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
