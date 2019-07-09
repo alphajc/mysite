@@ -26,7 +26,6 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
     zgrep MPPE /proc/config.gz #返回CONFIG_PPP_MPPE=y 或 =m
     cat /dev/net/tun #返回cat: /dev/net/tun: File descriptor in bad state
     ```
-    
     以上三条命令满足一条即为支持PPTP
 
 3. 安装PPP
@@ -116,7 +115,8 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 
    3. 启动或重启防火墙：
 
-            systemctl start firewalld.service或firewall-cmd --reload
+            systemctl start firewalld.service
+            firewall-cmd --reload # 或者
 
    4. 添加服务：
 

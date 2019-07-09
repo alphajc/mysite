@@ -1,8 +1,7 @@
 dist: xenial
-addons:
-  snaps:
-    - name: hugo
-      channel: extended/stable
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y hugo
 script: hugo
 deploy: &pages
   provider: pages
