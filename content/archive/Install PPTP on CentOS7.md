@@ -91,7 +91,7 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 8. 编辑/etc/sysctl.conf修改内核参数支持内核转发
 
     ```ini
-    net.ipv4.ip_forward=1
+    net.ipv4.ip_forward = 1
     ```
 
     输入命令生效：`sysctl -p`

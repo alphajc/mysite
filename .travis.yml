@@ -1,10 +1,13 @@
 dist: xenial
-addons:
-  snaps:
-    - name: hugo
-      channel: extended/stable
+# addons:
+#   snaps:
+#     - name: hugo
+#       channel: extended/stable
+before_install:
+  - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+
 script: hugo
-deploy: &pages
+deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
