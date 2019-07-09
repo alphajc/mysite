@@ -5,6 +5,7 @@ dist: xenial
 #       channel: extended/stable
 before_install:
   - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+  - brew install hugo
 
 script: hugo
 deploy:
