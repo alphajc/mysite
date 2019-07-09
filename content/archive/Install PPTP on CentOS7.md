@@ -31,9 +31,7 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 
 3. 安装PPP
 
-    ```bash
-    yum install -y ppp
-    ```
+        yum install -y ppp
 
 4. 安装PPTPD
 
@@ -49,11 +47,11 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
     
             yum repolist
 
-    4. 更新源列表：
+    1. 更新源列表：
 
             yum -y update
     
-    5. 安装PPTPD：
+    2. 安装PPTPD：
 
             yum install -y pptpd
 
@@ -61,17 +59,20 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 
     最后IP设置改为：
 
-        localip 192.168.0.1
-        remoteip 192.168.0.214,192.168.0.245
+    ```dns
+    localip 192.168.0.1
+    remoteip 192.168.0.214,192.168.0.245
+    ```
  
 
 6. 编辑/etc/ppp/options.pptpd
 
    1. 更改DNS项：
 
-            ms-dns 8.8.8.8
-
-            ms-dns 8.8.4.4
+        ```dns
+        ms-dns 8.8.8.8
+        ms-dns 8.8.4.4
+        ```
 
    2. 修改日志记录：
 
@@ -91,7 +92,9 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 
 8. 编辑/etc/sysctl.conf修改内核参数支持内核转发
 
-        net.ipv4.ip_forward=1
+    ```ini
+    net.ipv4.ip_forward=1
+    ```
 
     输入命令生效：`sysctl -p`
 
