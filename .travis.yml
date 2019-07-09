@@ -1,9 +1,8 @@
-os: osx
+dist: xenial
 addons:
-  homebrew:
-    packages:
-    - hugo
-    update: true
+  snaps:
+    - name: hugo
+      channel: extended/stable
 script: hugo
 deploy: &pages
   provider: pages
