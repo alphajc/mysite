@@ -23,7 +23,7 @@ MongoDB复制集是指MongoDB实例通过复制并应用其他实例的oplog达�
 
 常用的复制集构成一般有下图两种方式 (注意，可以使用mongoshell 手工指定复制源，但mongdb不保证这个指定是持久的，下文会讲到在某些情况下，MongoDB会自动进行复制源切换）。
 
-![](https://mc.qcloudimg.com/static/img/b8138ef83cfd3ecc388f5aa0d690ea40/image.png)
+![](https://images.weserv.nl/?url=https://mc.qcloudimg.com/static/img/b8138ef83cfd3ecc388f5aa0d690ea40/image.png)
 
 MongoDB的复制集技术并不少见，很类似mysql的异步复制模式，这种模式主要有几个技术点：
 
@@ -61,7 +61,7 @@ MongoDB作为一个成熟的数据库产品，较好的解决了上述问题，�
 
 是因为第2）步一般耗时太长，导致第3）步数据量变多，间接受到影响。然而这么做并不是必须的，rs_initialSync.cpp：384 开始的TODO建议使用SyncTail的方式将数据一次性读回来（SyncTail以及TailableCursor的行为与原理如果不熟悉请看[官方文档](https://docs.mongodb.com/manual/core/tailable-cursors/)。
 
-![](https://mc.qcloudimg.com/static/img/b65acc37de5789dbcdd55a345359b924/image.png)
+![](https://images.weserv.nl/?url=https://mc.qcloudimg.com/static/img/b65acc37de5789dbcdd55a345359b924/image.png)
 
 ### `steady-sync`
 
@@ -72,7 +72,7 @@ MongoDB作为一个成熟的数据库产品，较好的解决了上述问题，�
 
 这两种情况分别如下图所示：
 
-![](https://mc.qcloudimg.com/static/img/d72eb13c214da4197d63ef3666fd8d6d/image.png)
+![](https://images.weserv.nl/?url=https://mc.qcloudimg.com/static/img/d72eb13c214da4197d63ef3666fd8d6d/image.png)
 
 这两种情况在`bgsync.cpp:_produce`函数中，虽然这两种情况很不一样，但是最终都会进入`bgsync.cpp:_rollback`函数处理。
 
@@ -101,7 +101,7 @@ MongoDB作为一个成熟的数据库产品，较好的解决了上述问题，�
 
 对MongoDB的集群数据同步的描述暂告段落。我们利用一张流程图来做总结：
 
-![](https://mc.qcloudimg.com/static/img/2cf41c43c9d38860590af8f4d44ecf12/image.png)
+![](https://images.weserv.nl/?url=https://mc.qcloudimg.com/static/img/2cf41c43c9d38860590af8f4d44ecf12/image.png)
 
 ### steady-sync的线程模型与 Oplog 指令乱序加速
 
@@ -173,7 +173,7 @@ MongoDB作为一个成熟的数据库产品，较好的解决了上述问题，�
 
 steady-sync 的类依赖与线程模型总结如下图：
 
-![](https://mc.qcloudimg.com/static/img/ea93f18c671fff23d851ca426545def8/image.png)
+![](https://images.weserv.nl/?url=https://mc.qcloudimg.com/static/img/ea93f18c671fff23d851ca426545def8/image.png)
 
 ## 二.MongoDB心跳与选举机制
 

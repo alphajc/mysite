@@ -261,7 +261,7 @@ PAM提供了一个pam_mkhomedir.so的模块，当执行这个模块时，它会�
 
         authconfig-tui
 
-![authconfig-tui](https://s3.51cto.com/wyfs02/M02/47/80/wKioL1P7QcfA9TSVAAFgZUAPtao238.jpg)
+    ![authconfig-tui](https://images.weserv.nl/?url=https://s3.51cto.com/wyfs02/M02/47/80/wKioL1P7QcfA9TSVAAFgZUAPtao238.jpg)
 
 2. 命令行配置：
 
@@ -401,4 +401,4 @@ Nsswitch.conf文件通常控制着用户(在passwd中)、口令(在shadow中)、
 
 管理工具也有很多，比如ldapadmin
 
-![wKioL1P7T9uTJJS2AAMng9du-lI675.jpg](https://s3.51cto.com/wyfs02/M01/47/80/wKioL1P7T9uTJJS2AAMng9du-lI675.jpg)
+![wKioL1P7T9uTJJS2AAMng9du-lI675.jpg](https://images.weserv.nl/?url=https://s3.51cto.com/wyfs02/M01/47/80/wKioL1P7T9uTJJS2AAMng9du-lI675.jpg)

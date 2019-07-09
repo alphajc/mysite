@@ -18,7 +18,7 @@ type = "post"
 
 以下定义并解释了各架构组件： 
 
-![架构图](https://upload.wikimedia.org/wikipedia/commons/e/e6/SDN-architecture-overview-transparent.png)
+![架构图](https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/e/e6/SDN-architecture-overview-transparent.png)
 
 # SDN应用程序
 

@@ -27,7 +27,7 @@ type = "post"
 - **集中管理**：网络智能（在逻辑上）集中在基于软件的SDN控制器中，其维护网络的全局视图，其将应用和策略引擎看作是单个逻辑交换机。
 - **编程配置**：SDN使网络管理员通过动态，自动化的SDN程序非常快速地配置，管理，保护和优化网络资源，他们可以自己编写，因为程序不依赖于专有软件。
 - **开放标准和厂商中立**：通过开放标准实现，SDN简化了网络设计和操作，因为SDN控制器提供了指令，而不是多个供应商特定的设备和协议。 
-    ![image](https://www.opennetworking.org/images/stories/sdn-resources/meet-sdn/sdn-3layers.gif)
+    ![image](https://images.weserv.nl/?url=https://www.opennetworking.org/images/stories/sdn-resources/meet-sdn/sdn-3layers.gif
 
 
 计算趋势正在推动网络变革
