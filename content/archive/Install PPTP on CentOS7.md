@@ -26,7 +26,7 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
     zgrep MPPE /proc/config.gz #返回CONFIG_PPP_MPPE=y 或 =m
     cat /dev/net/tun #返回cat: /dev/net/tun: File descriptor in bad state
     ```
-
+    
     以上三条命令满足一条即为支持PPTP
 
 3. 安装PPP
@@ -44,7 +44,7 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
             rpm -ivh epel-release-latest-7.noarch.rpm
 
    3. 检查是否已添加到源列表中：
-    
+
             yum repolist
 
     1. 更新源列表：
@@ -56,7 +56,7 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
             yum install -y pptpd
 
 5. 编辑/etc/pptpd.conf设置VPN内网IP段
-
+    
     最后IP设置改为：
 
     ```dns
@@ -77,7 +77,6 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
    2. 修改日志记录：
 
             nologfd
-
             logfile /var/log/pptpd.log
 
 7. 编辑/etc/ppp/chap-secrets设置VPN账号密码
@@ -98,10 +97,10 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 
     输入命令生效：`sysctl -p`
 
-9. 修改防火墙设置：
+9.  修改防火墙设置：
 
    1.  创建规则文件：
-        
+
             touch /usr/lib/firewalld/services/pptpd.xml
 
    2.  修改规则文件
@@ -126,12 +125,12 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
    5. 允许防火墙伪装IP：
 
             firewall-cmd --add-masquerade
-   
+
    6. 开启47及1723端口：
 
             firewall-cmd --permanent --zone=public --add-port=47/tcp
             firewall-cmd --permanent --zone=public --add-port=1723/tcp
-   
+
    7. 允许gre协议：
 
             firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p gre -j ACCEPT
@@ -141,11 +140,11 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 
             firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -i ppp+ -o eth0 -j ACCEPT
             firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -i eth0 -o ppp+ -j ACCEPT
-   
+
    9. 设置转发规则，从源地址发出的所有包都进行伪装，改变地址，由eth0发出：
 
             firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -o eth0 -j MASQUERADE -s 192.168.0.0/24
-            
+
 10. 重启服务器：
 
     ```bash
