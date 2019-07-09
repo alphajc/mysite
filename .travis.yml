@@ -3,6 +3,7 @@ addons:
   homebrew:
     packages:
     - hugo
+    update: true
 script: hugo
 deploy: &pages
   provider: pages
