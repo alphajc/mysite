@@ -98,11 +98,11 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
 
 9.  修改防火墙设置：
 
-   1.  创建规则文件：
+    1.  创建规则文件：
 
             touch /usr/lib/firewalld/services/pptpd.xml
 
-   2.  修改规则文件
+    2.  修改规则文件
 
         ```xml
         <?xml version="1.0" encoding="utf-8"?>
@@ -113,35 +113,35 @@ CentOS7安装PPTP VPN（开启firewall防火墙）
         </service>
         ```
 
-   3. 启动或重启防火墙：
+    3.  启动或重启防火墙：
 
             systemctl start firewalld.service
             firewall-cmd --reload # 或者
 
-   4. 添加服务：
+    4.  添加服务：
 
             firewall-cmd --permanent --zone=public --add-service=pptpd
 
-   5. 允许防火墙伪装IP：
+    5.  允许防火墙伪装IP：
 
             firewall-cmd --add-masquerade
 
-   6. 开启47及1723端口：
+    6.  开启47及1723端口：
 
             firewall-cmd --permanent --zone=public --add-port=47/tcp
             firewall-cmd --permanent --zone=public --add-port=1723/tcp
 
-   7. 允许gre协议：
+    7.  允许gre协议：
 
             firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p gre -j ACCEPT
             firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p gre -j ACCEPT
 
-   8. 设置规则允许数据包由eth0和ppp+接口中进出
+    8.  设置规则允许数据包由eth0和ppp+接口中进出
 
             firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -i ppp+ -o eth0 -j ACCEPT
             firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -i eth0 -o ppp+ -j ACCEPT
 
-   9. 设置转发规则，从源地址发出的所有包都进行伪装，改变地址，由eth0发出：
+    9.  设置转发规则，从源地址发出的所有包都进行伪装，改变地址，由eth0发出：
 
             firewall-cmd --permanent --direct --passthrough ipv4 -t nat -I POSTROUTING -o eth0 -j MASQUERADE -s 192.168.0.0/24
 
