@@ -1,6 +1,8 @@
 os: osx
-before_install:
-  - brew install hugo
+addons:
+  homebrew:
+    packages:
+    - hugo
 script: hugo
 deploy: &pages
   provider: pages
