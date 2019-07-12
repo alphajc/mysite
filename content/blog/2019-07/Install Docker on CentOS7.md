@@ -63,7 +63,24 @@ $ sudo yum remove docker \
     ```
     如果弹出导入 Key 的问题，请接受
 
-2. 启动 Docker
+2. 镜像加速
+
+    新建或修改`/etc/docker/daemon.json`，加入：
+    ```json
+    {
+        "registry-mirrors": [
+            "https://dockerhub.azk8s.cn",
+            "https://reg-mirror.qiniu.com"
+        ]
+    }
+    ```
+    一定要确保格式没有问题，否则 docker 无法启动，修改完成后执行以下命令：
+    ```bash
+    $ sudo systemctl daemon-reload
+    ```
+    
+
+3. 启动 Docker
 
     ```bash
     $ sudo systemctl start docker
