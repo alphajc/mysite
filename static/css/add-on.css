@@ -258,3 +258,18 @@ article code {
   top: 5px;
   margin-bottom: 18px;
 }
+
+/* LineHighlight */ .chroma .hl { display: block; width: 100%;background-color: #ffffcc }
+/* .lntable .lntd:first-child {
+  width: 1%;
+  min-width: 20px;
+}
+
+.chroma .lntable {
+  border-top: none
+}
+
+.chroma .lntable .lntd {
+  text-align: left; 
+  padding: 0%
+} */
