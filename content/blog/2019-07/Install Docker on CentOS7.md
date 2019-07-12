@@ -51,7 +51,7 @@ $ sudo yum remove docker \
 
     出现该问题一般是由于本地时间不正确（经常挂起的虚拟机很容易出现），使用`date`命令核对一下时间即可，若确认是这个问题，则：
     ```bash
-    ntpdate pool.ntp.org # ntpdate 可使用 yum install ntpdate 进行安装
+    $ sudo ntpdate pool.ntp.org # ntpdate 可使用 yum install ntpdate 进行安装
     ```
 
 ## 安装 Docker CE
