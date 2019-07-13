@@ -79,7 +79,7 @@ _唯愿君心似我心，与君识共奋进_
 
 # 热衷于……
 
-- 新技术、标准化、自动化:sweat_smile:
+- 新技术、标准化、自动化、[12-factor](https://12factor.net/zh_cn/):sweat_smile:
 - 学以致用、解决难题「别人处理不了的最佳:smirk:」
 - 思考「:point_right:吃饭思考:point_right:睡觉思考:point_right:走路思考」
 - 烹饪、羽毛球、一切惊险刺激的活动、NBA:satisfied:
