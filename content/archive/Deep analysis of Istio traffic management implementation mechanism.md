@@ -424,7 +424,7 @@ kubectl exec productpage-v1-54b8b9f55-bx2dq -c istio-proxy -- cat /etc/istio/pro
 
 配置 Envoy 的日志路径以及管理端口。
 
-```bash
+```json
 "admin": {
     "access_log_path": "/dev/stdout",
     "address": {
@@ -466,7 +466,7 @@ kubectl exec productpage-v1-54b8b9f55-bx2dq -c istio-proxy -- cat /etc/istio/pro
 
 配置静态资源，包括了 xds-grpc 和 zipkin 两个 cluster。其中 xds-grpc cluster 对应前面 dynamic_resources 中 ADS 配置，指明了 Envoy 用于获取动态资源的服务器地址。
 
-```bash
+```json
 "static_resources": {
     "clusters": [
     {
@@ -524,7 +524,7 @@ kubectl exec productpage-v1-54b8b9f55-bx2dq -c istio-proxy -- cat /etc/istio/pro
 
 配置分布式链路跟踪。
 
-```bash
+```json
 "tracing": {
     "http": {
       "name": "envoy.zipkin",
@@ -539,7 +539,7 @@ kubectl exec productpage-v1-54b8b9f55-bx2dq -c istio-proxy -- cat /etc/istio/pro
 
 这里配置的是和 Envoy 直连的 metrics 收集 sink,和 Mixer telemetry 没有关系。Envoy 自带 stats 格式的 metrics 上报。
 
-```bash
+```json
 "stats_sinks": [
     {
       "name": "envoy.statsd",
@@ -875,7 +875,7 @@ Productpage Pod 中的 Envoy 创建了多个 Outbound Listener
 
 在该 listener 的配置中，我们可以看到并没有像 inbound listener 那样通过 envoy.tcp_proxy 直接指定一个 downstream 的 cluster，而是通过 rds 配置了一个[路由规则 9080](#routes)，在路由规则中再根据不同的请求目的地对请求进行处理。
 
-```bash
+```json
 {
      "version_info": "2018-09-06T09:34:19Z",
      "listener": {
@@ -965,7 +965,7 @@ Productpage Pod 中的 Envoy 创建了多个 Outbound Listener
 
 下面是 9080 的路由配置，从文件中可以看到对应了 3 个 virtual host，分别是 details、ratings 和 reviews，这三个 virtual host 分别对应到不同的[outbound cluster](#outbound-cluster)。
 
-```bash
+```json
 {
      "version_info": "2018-09-14T01:38:20Z",
      "route_config": {
@@ -1130,7 +1130,7 @@ Productpage Pod 中的 Envoy 创建了多个 Outbound Listener
 
 5. 根据 0.0.0.0_9080 listener 的 http_connection_manager filter 配置,该请求采用“9080” route 进行分发。
 
-```bash
+```json
 {
  "version_info": "2018-09-06T09:34:19Z",
  "listener": {
@@ -1173,7 +1173,7 @@ Productpage Pod 中的 Envoy 创建了多个 Outbound Listener
 
 6. “9080”这个 route 的配置中，host name 为 details:9080 的请求对应的 cluster 为 outbound|9080||details.default.svc.cluster.local
 
-```bash
+```json
 {
  "version_info": "2018-09-14T01:38:20Z",
  "route_config": {
@@ -1220,7 +1220,7 @@ Productpage Pod 中的 Envoy 创建了多个 Outbound Listener
 
 7. outbound|9080||details.default.svc.cluster.local cluster 为动态资源，通过 eds 查询得到其 endpoint 为 192.168.206.21:9080。
 
-```bash
+```json
 {
 "clusterName": "outbound|9080||details.default.svc.cluster.local",
 "endpoints": [
@@ -1254,7 +1254,7 @@ Productpage Pod 中的 Envoy 创建了多个 Outbound Listener
 
 11. 根据 92.168.206.21_9080 listener 的 http_connection_manager filter 配置,该请求对应的 cluster 为 inbound|9080||details.default.svc.cluster.local 。
 
-```bash
+```json
 {
  "version_info": "2018-09-06T09:34:16Z",
  "listener": {
