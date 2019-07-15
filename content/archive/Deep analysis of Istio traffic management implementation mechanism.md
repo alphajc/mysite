@@ -347,7 +347,7 @@ Pilot-agent 进程根据启动参数和 K8S API Server 中的配置信息生成 
 
 Pilot agent 生成初始化配置文件的代码： [https://github.com/istio/istio/blob/release-1.0/pkg/bootstrap/bootstrap_config.go](https://github.com/istio/istio/blob/release-1.0/pkg/bootstrap/bootstrap_config.go) 137 行
 
-```cs
+```go
 // WriteBootstrap generates an envoy config based on config and epoch, and returns the filename.
 // TODO: in v2 some of the LDS ports (port, http_port) should be configured in the bootstrap.
 func WriteBootstrap(config *meshconfig.ProxyConfig, node string, epoch int, pilotSAN []string, opts map[string]interface{}) (string, error) {
@@ -404,7 +404,7 @@ kubectl exec productpage-v1-54b8b9f55-bx2dq -c istio-proxy -- cat /etc/istio/pro
 
 包含了 Envoy 所在节点相关信息。
 
-```cpp
+```json
 "node": {
     "id": "sidecar~192.168.206.23~productpage-v1-54b8b9f55-bx2dq.default~default.svc.cluster.local",
     //用于标识 envoy 所代理的 node（在 k8s 中对应为 Pod）上的 service cluster，来自于 Envoy 进程启动时的 service-cluster 参数
@@ -440,7 +440,7 @@ kubectl exec productpage-v1-54b8b9f55-bx2dq -c istio-proxy -- cat /etc/istio/pro
 
 配置动态资源,这里配置了 ADS 服务器。
 
-```javascript
+```json
 "dynamic_resources": {
     "lds_config": {
         "ads": {}
@@ -571,7 +571,7 @@ Envoy 配置初始化流程：
 
 可以看到，Envoy 中实际生效的配置是由初始化配置文件中的静态配置和从 Pilot 获取的动态配置一起组成的。因此只对 envoy-rev0 .json 进行分析并不能看到 Mesh 中流量管理的全貌。那么有没有办法可以看到 Envoy 中实际生效的完整配置呢？答案是可以的，我们可以通过 Envoy 的管理接口来获取 Envoy 的完整配置。
 
-```nginx
+```bash
 kubectl exec -it productpage-v1-54b8b9f55-bx2dq -c istio-proxy curl http://127.0.0.1:15000/config_dump > config_dump
 ```
 
@@ -630,7 +630,7 @@ Dynamic Cluster 中有以下几类 Cluster：
 
 可以通过 Pilot 的调试接口获取该 Cluster 的 endpoint：
 
-```nginx
+```bash
 curl http://10.96.8.103:9093/debug/edsz > pilot_eds_dump
 ```
 
