@@ -26,15 +26,3 @@ ul.icons li > * .label {
 .hero-down.container {
     text-align: center;
 }
-
-.placeholder img {
-    display: none;
-}
-
-.placeholder img.loaded{
-    display: inline;
-}
-
-img.small-img{
-    filter: blur(10px);
-}
