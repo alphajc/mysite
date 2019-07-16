@@ -552,7 +552,7 @@ kubectl exec productpage-v1-54b8b9f55-bx2dq -c istio-proxy -- cat /etc/istio/pro
   ]
 ```
 
-在 Gist [https://gist.github.com/zhaohuabing/14191bdcf72e37bf700129561c3b41ae 中可以查看该配置文件的完整内容。](https://gist.github.com/zhaohuabing/14191bdcf72e37bf700129561c3b41ae 中可以查看该配置文件的完整内容。)
+在 Gist [https://gist.github.com/zhaohuabing/14191bdcf72e37bf700129561c3b41ae](https://gist.github.com/zhaohuabing/14191bdcf72e37bf700129561c3b41ae) 中可以查看该配置文件的完整内容。
 
 ## Envoy 配置分析
 
