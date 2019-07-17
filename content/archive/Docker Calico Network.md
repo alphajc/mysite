@@ -126,7 +126,7 @@ Calico node started successfully
 
 在每个节点运行都不部署 calico 容器之后，calico 网络集群就搭建好了。接下来我们会创建两个网络，并测试 calico 跨主机网络的连通性，最终的网络示意图如下：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fkgfg04nwbj31hc0u0qb0.jpg)
+![](https://images.weserv.nl/?url=https://ws1.sinaimg.cn/large/006tNc79gy1fkgfg04nwbj31hc0u0qb0.jpg)
 
 图中只展示了两个节点，每个节点有两个容器，其中蓝色容器在同一个网络，红色容器在另外一个网络。
 
@@ -290,7 +290,7 @@ blackhole 192.168.196.128/26  proto bird
 
 总体的报文路径就是按照下图中的数字顺序，回来的报文按照原路返回：
 
-![calico-packet-flow](https://ws3.sinaimg.cn/large/006tNc79gy1fkgfhzbl9kj31hc0u047e.jpg)
+![calico-packet-flow](https://images.weserv.nl/?url=https://ws3.sinaimg.cn/large/006tNc79gy1fkgfhzbl9kj31hc0u047e.jpg)
 
 ## 组件和架构
 
