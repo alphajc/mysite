@@ -4,6 +4,7 @@ author = "Jerry Chan"
 categories = ["百味人生"]
 tags = []
 date = "2019-07-25T22:38:35+08:00"
+draft = true
 description = "从我决定要来深圳的那一刻起，我便做好了历经艰辛与磨砺的准备，因为我知道不论成败，这一切都将不容易。"
 featured = "job_opportunities.jpg"
 featuredalt = ""
