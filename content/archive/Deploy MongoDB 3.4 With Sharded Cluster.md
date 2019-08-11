@@ -2,7 +2,7 @@
 author = "萧涵"
 date = "2019-07-06T15:54:35+08:00"
 tags = ["MongoDB","MongoDB3.4", "MongoDB Sharded Cluster"]
-categories = ["信息技术"]
+categories = ["技术"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://zhuanlan.zhihu.com/p/25594963"
 linktitle = "原文链接"

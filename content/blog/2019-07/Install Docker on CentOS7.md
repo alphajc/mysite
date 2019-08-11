@@ -1,7 +1,7 @@
 +++
 
 author = "Jerry Chan"
-categories = ["信息技术"]
+categories = ["技术"]
 tags = ["Container", "Docker", "CentOS7"]
 date = "2019-07-12T10:46:25+08:00"
 description = "使用国内源在 CentOS 7 上安装和删除最新版 Docker CE 的简单教程。"

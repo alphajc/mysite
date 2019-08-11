@@ -1,7 +1,7 @@
 +++
 
 author = "Jerry Chan"
-categories = ["百味人生"]
+categories = ["人生"]
 tags = []
 date = "2019-07-25T22:38:35+08:00"
 draft = true

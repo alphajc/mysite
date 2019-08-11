@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["信息技术"]
+categories = ["技术"]
 tags = ["vmware"]
 date = "2018-01-21T08:52:19+08:00"
 description = "该篇介绍了vCenter Server 组件和服务"

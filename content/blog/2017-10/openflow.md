@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["信息技术"]
+categories = ["技术"]
 tags = ["SDN", "Openflow"]
 date = "2017-10-11T08:54:08+08:00"
 description = "本文源于维基百科对openflow的介绍"

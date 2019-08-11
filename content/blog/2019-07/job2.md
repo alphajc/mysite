@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["百味人生"]
+categories = ["人生"]
 date = "2019-07-01T17:56:50+08:00"
 description = "在北京容联七陌科技有限公司架构小组担任基础架构工程师，主要微服务容器化以及自动化运维环境的设计和实现"
 featured = "job2_1.png"

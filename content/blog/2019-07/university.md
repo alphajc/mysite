@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["百味人生"]
+categories = ["人生"]
 date = "2019-07-01T17:29:58+08:00"
 description = "南昌航空大学软件工程专业学生，GPA排名年级前5%。大一大二于校本部学习，大三在校企合作项目沈阳东软睿道教学中心进行项目实战训练，大四全职实习"
 featured = "university_1.jpg"

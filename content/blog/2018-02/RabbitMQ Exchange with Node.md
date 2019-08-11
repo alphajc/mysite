@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["信息技术"]
+categories = ["技术"]
 tags = ["RabbitMQ", "Middleware", "Node.js"]
 date = "2018-02-15T08:52:19+08:00"
 description = "node使用rabbitmq系列的第5篇文章，介绍了rabbitmq交换器的使用方式。"

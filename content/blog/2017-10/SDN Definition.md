@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["信息技术"]
+categories = ["技术"]
 tags = ["SDN"]
 date = "2017-10-21T09:54:08+08:00"
 description = "本文讲述了什么是软件定义网络。"

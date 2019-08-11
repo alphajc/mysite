@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["信息技术"]
+categories = ["技术"]
 tags = ["Ubuntu", "Docker"]
 date = "2017-10-22T08:54:08+08:00"
 description = "本文介绍了使用Ubuntu安装docker的方式，源自于docker官方网站"

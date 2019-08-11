@@ -2,7 +2,7 @@
 author = "刘超"
 date = "2019-07-13T13:36:51+08:00"
 tags = ["Kubernetes", "Istio", "Service Mesh"]
-categories = ["信息技术"]
+categories = ["技术"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://www.cnblogs.com/163yun/p/8962278.html"
 linktitle = "原文链接"

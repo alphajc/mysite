@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["信息技术"]
+categories = ["技术"]
 tags = ["LXC", "Container"]
 date = "2017-11-05T08:56:09+08:00"
 description = "lxc的第一篇文章，主要是一些相关概念的阐述。"

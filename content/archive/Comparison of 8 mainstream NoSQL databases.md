@@ -2,7 +2,7 @@
 author = "北京马哥教育"
 date = "2019-07-07T14:02:44+08:00"
 tags = ["NoSQL", "CouchDB", "Redis", "MongoDB", "Riak", "Membase", "Neo4j", "Cassandra", "HBase"]
-categories = ["信息技术"]
+categories = ["技术"]
 description = "虽然SQL数据库是非常有用的工具，但经历了15年的一支独秀之后垄断即将被打破。这只是时间问题：被迫使用关系数据库，但最终发现不能适应需求的情况不胜枚举。"
 link = "https://cloud.tencent.com/developer/article/1114538"
 linktitle = "原文链接"

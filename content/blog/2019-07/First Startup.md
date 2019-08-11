@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["百味人生"]
+categories = ["人生"]
 date = "2019-07-01T17:58:19+08:00"
 description = "可以想象却也超越想象的煎熬，有时候充满希望，有时候感觉无计可施。超越想象的煎熬带来超越想象的收获，只有尝试了才懂"
 featured = "first_startup_1.jpg"
