@@ -125,7 +125,7 @@ input[type="submit"], input[type="reset"], input[type="button"], button, .button
   padding: 0 2rem;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   white-space: nowrap;
 }
 
