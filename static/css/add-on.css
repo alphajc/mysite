@@ -234,7 +234,7 @@ article code {
 .markdown table th, .markdown table td {
   font-size: 15px;
   line-height: 20px;
-  padding: 10px 18px 8px 0;
+  /* padding: 10px 18px 8px 0; */
 }
 .markdown table thead th, .markdown table thead td {
   font-family: Quattrocento, serif;
@@ -243,9 +243,9 @@ article code {
 .markdown table tfoot th, .markdown table tfoot td {
   padding-bottom: 8px;
 }
-.markdown table th:first-child, .markdown table td:first-child {
+/* .markdown table th:first-child, .markdown table td:first-child {
   padding-left: 0;
-}
+} */
 .markdown table th:last-child, .markdown table td:last-child {
   padding-right: 0;
 }
