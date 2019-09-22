@@ -13,7 +13,7 @@ type = "post"
 
 +++
 
-按例需要说明的是本人水平有限，我会尽量保证文章准确无误，但如果不幸产生任何错误，望不吝赐教。
+本文供自己记录学习，我会尽量保证文章准确无误，但因本人水平有限，如果不幸产生任何错误，望读者不吝赐教。
 
 ## 浅析 gitlab-runner 相关配置
 
@@ -139,8 +139,90 @@ build:
 
 ## 使用 helm 安装 gitlab-runner
 
+使用 gitlab 官方 chart 库进行 gitlab-runner 的安装。因为官方的 chart 使用参数和环境变量注册 gitlab-runner，在使用上会有一定的局限性，可能需要一些修改才能进行高级配置。以下是使用官方 chart 部署 gitlab-runner 的步骤：
+
+### 前提
+
+1. 安装了 tiller 的 kubernetes 的集群
+2. 初始化完成了的 helm 命令行工具
+
+### 1. 添加 gitlab 官方 chart 仓库
+
+```bash
+helm repo add gitlab https://charts.gitlab.io/
+helm repo update
+```
+
+### 2. 在 gitlab 代码仓库中找到 url 和 runner 的 token
+
+![获取 Gitlab 的 URL 和 runner 的 token](assets/blog/2019-09/find-url-and-token.png)
+
+### 3. 安装 gitlab-runner
+
+我们可以通过参数以及配置文件的形式为 helm 添加自定义配置。该 Chart 的可配置项可以查阅官方库[对于 `values.yaml` 文件的注释](https://gitlab.com/gitlab-org/charts/gitlab-runner/blob/master/values.yaml)，这里把关键配置提出来说明一下：
+
+- `gitlabUrl`：gitlab 服务的地址，形如：https://gitlab.xxx.com；
+- `runnerRegistrationToken`：上一步中得到的 token；
+- `rbac.create`：我是没有遇到过没有 `rbac` 的 kubernetes 集群，所以记得一定填 `true`，否则创建出的 gitlab-runner 将无权对集群进行操作；
+- `rbac.clusterWideAccess`：如果涉及到在不同的 namespace 跑 job，设置为 `true`，否则置为 `false`（这只能操作同一 namespace）；
+- `rbac.serviceAccountName`：如果不设置默认使用 default，如果 sa 专用则建议另起一个名字，以避免 default 权限过大，其它用 default 的 pod 滥用；
+- `runners.image`：默认镜像，在 gitlab-ci.yml 中的 job 未配置 `image` 时将自动选用；
+- `runners.privileged`：一般在该 runner 需要跑 `docker:dind` 镜像时使用；
+- `runners.namespace`: Job 运行的 namespace；
+- `runners.imagePullSecrets`：在创建 job 时使用的镜像如果来自于私有仓库则需要配置该字段。注意使用前需要提前创建好对应的 secret；
+- `runners.cache`：如果要使用 runner 的 cache 功能，需要对此选项进行配置，不同的持久化方式配置不同，有些方式甚至需要对 chart 进行改造。
+
+> 注：该 Chart 的多 runner 注册功能受限，对 kubernetes 的高级功能配置支持也有限，后期我将对这个 Chart 进行改造，使其支持。
+
 ## 浅析 `.gitlab-ci.yml` 相关配置
+
+有关 `.gitlab-ci.yml` 更详细的配置参照[官方文档](https://docs.gitlab.com/ee/ci/yaml/README.html)，在此仅挑部分有特点的东西记录一下。
+
+1. image 将确定 job 运行的环境，script 将在该环境中运行；
+2. service 是环境的依赖，如`docker:dind` 一般以这种方式注入，具体在 kubernetes 集群中会以 sidecar 的形式与主环境放在一个 pod 中，所以如果 service 提供的是 socket 服务，在主环境中使用 localhost 即可访问；
+3. 注意 only/except 的[高级用法](https://docs.gitlab.com/ee/ci/yaml/README.html#onlyexcept-advanced)，可以服务于多种场景；
+4. 使用 [rules](https://docs.gitlab.com/ee/ci/yaml/README.html#rules) 对 job 进行合理控制；
+5. [environment](https://docs.gitlab.com/ee/ci/yaml/README.html#environment) 跟持续部署相关，主要用于前端项目；
+6. [cache](https://docs.gitlab.com/ee/ci/yaml/README.html#cache) 用于在多个 job 间缓存数据；
+7. [artifacts](https://docs.gitlab.com/ee/ci/yaml/README.html#artifacts) 将对指定文件（一般是编译产物）进行打包，并上传至 gitlab，供下载使用，这也会在界面进行展示，配合 [dependencies](https://docs.gitlab.com/ee/ci/yaml/README.html#dependencies) 使用，可以在不同 stage 的 job 间进行传递；
+8. 使用 [coverage](https://docs.gitlab.com/ee/ci/yaml/README.html#coverage) 抓取测试覆盖率
 
 ## 配置 `.gitlab-ci.yml`
 
-## 最终效果
+```yaml
+stages:
+  - build
+
+.build-common: &build-common
+  image: docker:latest
+  variables:
+    DOCKER_HOST: tcp://localhost:2375 # kubernetes 集群中使用 localhost 访问
+    DOCKER_DRIVER: overlay2
+  services:
+    - name: docker:18-dind # 匹配环境中 docker 的版本
+      command: ["--registry-mirror=https://mirror.ccs.tencentyun.com"] # 这是我找到的在编译镜像时，配置镜像加速器的最好办法
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+
+build-master:
+  <<: *build-common
+  stage: build
+  script:
+    - docker build -t "$CI_REGISTRY_IMAGE" .
+    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY/$CI_REGISTRY_IMAGE"
+    - docker tag "$CI_REGISTRY_IMAGE" "$CI_REGISTRY/$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA:0:9}"
+    - docker push "$CI_REGISTRY/$CI_REGISTRY_IMAGE"
+    - docker push "$CI_REGISTRY/$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA:0:9}"
+  only:
+    - master
+
+build:
+  <<: *build-common
+  stage: build
+  script:
+    - docker build -t "$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA:0:9}" .
+    - docker tag "$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA:0:9}" "$CI_REGISTRY/$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA:0:9}"
+    - docker push "$CI_REGISTRY/$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA:0:9}"
+  except:
+    - master
+```
