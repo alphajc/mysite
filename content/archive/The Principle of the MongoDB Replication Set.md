@@ -2,7 +2,7 @@
 author = "孔德雨"
 date = "2019-07-07T19:20:18+08:00"
 tags = ["MongoDB", "MongoDB Replication Set"]
-categories = ["技术"]
+categories = ["数据库"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://cloud.tencent.com/developer/article/1004384"
 linktitle = "原文链接"

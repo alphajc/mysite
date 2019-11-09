@@ -2,7 +2,7 @@
 author = "赵化冰"
 date = "2019-07-13T16:33:15+08:00"
 tags = ["Istio", "Service Mesh"]
-categories = ["技术"]
+categories = ["云原生"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://zhaohuabing.com/post/2018-09-25-istio-traffic-management-impl-intro/"
 linktitle = "原文链接"

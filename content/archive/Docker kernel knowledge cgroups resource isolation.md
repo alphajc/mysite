@@ -2,7 +2,7 @@
 author = "孙健波"
 date = "2019-07-27T21:56:03+08:00"
 tags = ['Docker', 'cgroups', 'Linux']
-categories = ["技术"]
+categories = ["云原生"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://www.infoq.cn/article/docker-kernel-knowledge-cgroups-resource-isolation"
 linktitle = "原文链接"

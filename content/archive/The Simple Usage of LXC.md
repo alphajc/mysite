@@ -2,7 +2,7 @@
 author = "Like Ma"
 date = "2019-07-07T08:02:31+08:00"
 tags = ["LXC", "Linux", "Container", "Ubuntu", "Ubuntu12.04"]
-categories = ["技术"]
+categories = ["云原生"]
 description = "LXC (Linux Containters) 是一种基于内核容器属性的用户空间接口。 它被认为介于chroot和完全虚拟化之间，其目标为创建一个不需要独立内核，但近可能接近标准Linux安装的环境。"
 link = "https://www.malike.net.cn/blog/2013/11/10/lxc-tutorial/"
 linktitle = "原文链接"

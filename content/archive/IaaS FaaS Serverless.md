@@ -2,7 +2,7 @@
 author = "费良宏"
 date = "2019-07-07T13:43:44+08:00"
 tags = ["IaaS", "FaaS", "Serverless", "AWS", "AWS Lambda"]
-categories = ["技术"]
+categories = ["云原生"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://aws.amazon.com/cn/blogs/china/iaas-faas-serverless/"
 linktitle = "原文链接"

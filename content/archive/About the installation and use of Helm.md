@@ -2,7 +2,7 @@
 author = "kozazyh"
 date = "2019-07-07T08:42:53+08:00"
 tags = ["Helm", "Kubernetes"]
-categories = ["技术"]
+categories = ["云原生"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://blog.csdn.net/kozazyh/article/details/79537996"
 linktitle = "原文链接"

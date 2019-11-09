@@ -2,7 +2,7 @@
 author = "cizixs"
 date = "2019-07-18T06:57:59+08:00"
 tags = ['calico', 'docker']
-categories = ["技术"]
+categories = ["云原生"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://cizixs.com/2017/10/19/docker-calico-network/"
 linktitle = "原文链接"

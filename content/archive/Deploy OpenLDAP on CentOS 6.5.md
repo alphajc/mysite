@@ -2,7 +2,7 @@
 author = "西索oO"
 date = "2019-07-07T08:19:54+08:00"
 tags = ["LDAP", "OpenLDAP", "Linux", "CentOS", "CentOS6"]
-categories = ["技术"]
+categories = ["运维"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://blog.51cto.com/lansgg/1544951"
 linktitle = "原文链接"

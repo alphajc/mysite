@@ -2,7 +2,7 @@
 author = "Deepzz"
 date = "2019-07-07T11:24:33+08:00"
 tags = ["Consul", "Gossip", "Service Discovery"]
-categories = ["技术"]
+categories = ["运维"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://deepzz.com/post/the-consul-of-discovery-and-configure-services.html"
 linktitle = "原文链接"

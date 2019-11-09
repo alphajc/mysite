@@ -2,7 +2,7 @@
 author = "很懒的虫"
 date = "2019-07-07T10:52:34+08:00"
 tags = ["PPTP", "VPN", "CentOS", "CentOS7"]
-categories = ["技术"]
+categories = ["运维"]
 description = "文章转载自互联网，供自己学习参考"
 link = "https://www.cnblogs.com/CoveredWithDust/p/7967036.html"
 linktitle = "原文链接"

@@ -1,6 +1,6 @@
 +++
-author = "Jerry 云原生"
-categories = ["技术"]
+author = "Jerry"
+categories = ["云原生"]
 tags = ["Ubuntu", "Docker"]
 date = "2017-10-22T08:54:08+08:00"
 description = "本文介绍了使用Ubuntu安装docker的方式，源自于docker官方网站"
