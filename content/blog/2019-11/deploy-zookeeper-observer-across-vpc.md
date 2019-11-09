@@ -171,3 +171,9 @@ subsets:
 ```
 
 > 注意 label 要与对应 serviceMonitor 中 selector.matchLabels 匹配，端口名要一致
+
+## 其它
+
+### 超级管理员
+
+在给 zookeeper 配置权限时，由于需要加密的缘故，很多新手都容易配错，配错后对应的结点就无法删除了。在 zookeeper 中并没有什么超管可以无视 ACL 删除结点，所以我遍寻 zookeeper 的超级管理权限不得法。想要无视 ACL 对 Zookeeper 数据进行操作，只需找一个 zk 服务在配置文件中加入`skipACL=yes`并重启服务即可，操作完成后记得注释掉这个配置并重启服务，因为没有 ACL 的 zk 很不安全。为了降低重启服务所带来的风险，建议在 observer 上进行该操作。
