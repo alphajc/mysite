@@ -1,5 +1,5 @@
 +++
-author = "Jerry Chan"
+author = "Jerry 云原生"
 categories = ["技术"]
 tags = ["Ubuntu", "Docker"]
 date = "2017-10-22T08:54:08+08:00"

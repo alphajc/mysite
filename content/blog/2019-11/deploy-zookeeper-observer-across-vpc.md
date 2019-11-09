@@ -1,7 +1,7 @@
 +++
 
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["运维"]
 tags = ["zookeeper", "tke", "kubernetes"]
 date = "2019-11-02T09:15:21+08:00"
 description = "最近在 kubernetes 中部署高可用的 zookeeper，遇到了不少坑，遂将其记录下来。这是系列文章中的第二篇，主要讲如何跨 VPC 部署 zookeeper observer，并用集群中的 prometheus 对其进行监控"

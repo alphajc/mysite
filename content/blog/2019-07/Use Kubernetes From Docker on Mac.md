@@ -1,7 +1,7 @@
 +++
 
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["云原生"]
 tags = ["Mac","Docker", "Kubernetes"]
 date = "2019-07-12T20:23:13+08:00"
 description = "由于 kubernetes 官方镜像仓库被墙，所以在国内想要直接使用 Docker 自带的 kubernetes 要费一番功夫，本文是方法"

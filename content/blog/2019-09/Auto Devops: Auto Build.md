@@ -1,7 +1,7 @@
 +++
 
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["DevOps"]
 tags = ["kubernetes", "gitlab"]
 date = "2019-09-08T18:37:36+08:00"
 description = "gitlab 作为代码仓库，连接 kubernetes 中的 gitlab-runner 以实现自动化构建的基础环境。有关 gitlab-runner 的中文文档其实不多，本文将对 gitlab-runner 的使用进行简要介绍。"

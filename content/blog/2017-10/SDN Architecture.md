@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["虚拟化"]
 tags = ["SDN"]
 date = "2017-10-21T08:54:08+08:00"
 description = "本文介绍了SDN的架构"

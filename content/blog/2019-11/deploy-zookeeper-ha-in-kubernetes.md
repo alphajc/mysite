@@ -1,7 +1,7 @@
 +++
 
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["运维"]
 tags = ["kubernetes", "zookeeper", "tke"]
 date = "2019-11-02T08:01:06+08:00"
 description = "最近在 kubernetes 中部署高可用的 zookeeper，遇到了不少坑，遂将其记录下来。这是系列文章中的第一篇，主要阐述在 k8s 中 zookeeper 的部署"

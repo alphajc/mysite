@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["开发"]
 tags = ["RabbitMQ", "Middleware", "Node.js"]
 date = "2018-02-11T08:52:19+08:00"
 description = "node使用rabbitmq系列文章第一遍，本文介绍了rabbitmq客户端的简单使用"

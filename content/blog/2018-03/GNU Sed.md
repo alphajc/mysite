@@ -1,6 +1,6 @@
 +++
 author = "Jerry Chan"
-categories = ["技术"]
+categories = ["运维"]
 tags = ["sed", "GNU", "Linux"]
 date = "2018-03-11"
 description = "gnu sed的使用说手册，译自官方文档。"
