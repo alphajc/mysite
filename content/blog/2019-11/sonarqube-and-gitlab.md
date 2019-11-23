@@ -238,3 +238,4 @@ git push -u origin master
 
 1. `sonar-scanner`在使用环境变量`SONAR_TOKEN`的时候似乎存在问题，所以后来我是在命令行中使用的该变量
 2. gitlab 的 token 在 sonarqube 控制台中的配置似乎并没有效果，我在实际使用`sonar-scanner`的过程中还需要再次配置
+3. `sonar-gitlab-plugin`插件版本不对，起初用的`4.0.0`的版本，会报一个奇怪的错误，换了`4.1.0-SNAPSHOT`后，问题得到了解决
