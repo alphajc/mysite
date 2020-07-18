@@ -1,0 +1,49 @@
+# section information
+section:
+  name: Skills
+  title: 技能
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: Kubernetes
+  icon: "assets/images/skills/kubernetes.png"
+  summary: "具备 Kubernetes 的部署和管理能力，有集群项目迁移经验和部署方案设计经验。熟悉社区版 Kubernetes 的各种资源并了解其最佳实践， 目前是腾讯云 TKE 的用户。"
+
+- name: Docker
+  icon: "assets/images/skills/docker.svg"
+  summary: "Docker 相关的性能优化，包括镜像拉取加速、构建加速、最小化镜像等，有多阶段构建及镜像漏洞扫描等经验。"
+
+- name: Python 开发
+  icon: "assets/images/skills/python.svg"
+  summary: "目前的主力语言，主要是使用其开发自动化运维工具以及 CMDB 平台建设。"
+
+- name: 云计算
+  icon: "assets/images/skills/cloud.png"
+  summary: "有国内主要云供应商的使用经验，如腾讯云、阿里云等。此外还具有国外 IaaS 平台 [Triton](https://www.joyent.com/triton/compute) 的开发经验，对软件定义数据中心相关技术有一定了解。"
+
+- name: Linux
+  icon: "assets/images/skills/linux.png"
+  summary: "使用最多的操作系统，精通 bash/shell，能熟练使用 `sed`、`awk`、`vim` 等工具。此外，还有 SmartOS 的使用经验，了解 ZFS。"
+
+- name: Git
+  icon: "assets/images/skills/git.png"
+  summary: "拥有基于 git 的开发经验和项目维护经验，熟悉 git 的各种用法，个人经常使用 GitHub，工作中使用 GitLab。熟悉 `travis`、`github workflow`、`gitlab runner` 的使用。"
+
+- name: Ansible
+  icon: "assets/images/skills/ansible.svg"
+  summary: "熟悉 ansible 的使用，有 role 的编写和 module 的开发经验"
+
+- name: Node.js
+  icon: "assets/images/skills/nodejs.svg"
+  summary: "在开发 Triton 项目的时候，有一年多的 Node.js 的开发经验，可熟练阅读相关代码以及使用该语言进行开发。"
+
+- name: Istio
+  icon: "assets/images/skills/istio.svg"
+  summary: "熟悉 Istio 的主要资源，如 `Vitual Service`、`Gateway`、`Destination Rule`、`Service Entry` 等，并对 Envoy 有一定的了解。"
+

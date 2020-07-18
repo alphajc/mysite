@@ -138,7 +138,7 @@ productpage 是一个简单的用 python 写的提供 restful API 的程序。
 
 ### 通过 Kubernetes 编排 reviews
 
-{{< fancybox "https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/" "1253350-20180427141541243-801849258.jpg" "reviews 的 YAML 文件" "gallery" >}}
+![reviews 的 YAML 文件](https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/1253350-20180427141541243-801849258.jpg)
 
 这个稍微有些复杂，定义了三个 Deployment，但是版本号分别为 V1, V2, V3，但是 label 都是 app: reviews。
 
@@ -208,7 +208,7 @@ istioctl 做的第二项定制化是，嵌入 proxy 容器作为 sidecar。
 
 ### 深入解析 pilot 的工作机制
 
-{{< fancybox "https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/" "1253350-20180427142330737-1494122953.jpg" "pilot 的工作机制" "gallery" >}}
+![pilot 的工作机制](https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/1253350-20180427142330737-1494122953.jpg)
 
 Pilot 的工作机制展开后如图所示。
 
@@ -224,7 +224,7 @@ pilot 将管理员输入的转发策略配置和服务发现的当前状态，�
 
 如图，我们将所有的流量都发给版本 1。
 
-{{< fancybox "https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/" "1253350-20180427142449522-432185782.jpg" "修改路由前 Envoy 的规则" "gallery" >}}
+![修改路由前 Envoy 的规则](https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/1253350-20180427142449522-432185782.jpg)
 
 我们查看 envoy 的管理端口，可以看到只配置了 reviews 的 v1。
 
@@ -232,7 +232,7 @@ pilot 将管理员输入的转发策略配置和服务发现的当前状态，�
 
 当我们修改路由为 v1 和 v3 比例是五十比五十。
 
-{{< fancybox "https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/" "1253350-20180427142521729-1797928480.jpg" "修改路由后 Envoy 的规则" "gallery" >}}
+![修改路由后 Envoy 的规则](https://images.weserv.nl/?url=https://images2018.cnblogs.com/blog/1253350/201804/1253350-20180427142521729-1797928480.jpg)
 
 可以看到 envoy 的管理端口，路由有了两个版本的配置，也对应后端的两个 ip 地址。
 
