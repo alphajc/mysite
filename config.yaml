@@ -1,0 +1,55 @@
+baseURL: http://localhost:8000/
+languageCode: zh-cn
+title: 青云卷
+theme: toha
+
+# Allow raw html in markdown file
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Enable Google Analytics
+googleAnalytics: UA-142765126-1
+
+# Enable Disqus forum
+disqusShortname: mydream-ink
+
+# Enable global emoji support
+enableEmoji: true
+
+# Custom parameters
+params:
+  # copyright
+  copyright: © 2020 Copyright.
+
+  # background image of the landing page
+  background: "assets/images/background.jpg"
+
+  # GitHub repo URL of your site
+  gitRepo: https://github.com/canovie/mysite
+
+  # specify whether you want to write blog post or not
+  enableBlogPost: true
+
+  # specify the list of custom menus that you want to show in the top navbar.
+  # they will be separated by a divider from the main menus.
+  customMenus:
+  - name: 笔记
+    url: #
+
+  # some information about you
+  author:
+    nickname: "Jerry"
+    name: "陈家俊"
+    image: "/assets/images/portrait.jpg"
+    # give your some contact information. they will be used in the footer
+    contactInfo:
+      邮箱: "jerry@mydream.ink"
+      电话: "+8619980414909"
+    # a summary of what you do
+    summary:
+    - 我喜欢云原生和 DevOps，并且正从事这方面的工作
+    - 我曾用过 C/C++，不过现在主要使用 Python 和 Node.js
+    - 没什么会比兑现自己的价值还让人感到欣喜的事了
+    - 比努力更难的是不如何努力，所以格局很重要

@@ -1,0 +1,11 @@
+# section information
+section:
+  name: Recent Posts
+  title: 最近文章
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# no additional configuration is required

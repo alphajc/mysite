@@ -1,0 +1,72 @@
+# section information
+section:
+  name: About
+  title: 关于
+  enable: true
+  weight: 1
+  showOnNavbar: true
+
+# your designation
+designation: 高级运维开发工程师
+# your company information
+company:
+  name: 荔枝微课
+  url: "https://www.lizhiweike.com"
+
+# your resume. this file path should be relative to you "static" directory
+resume: "files/resume.pdf"
+
+# a summary about you
+summary: |-
+  我是一名出色的 IT 工程师，同时也是一位逐梦人。努力把自己活成理想中的样子，这是人这一生中应有的激情。大概没有什么能比让自己变得更优秀还让人欣喜的事了。能彰显自己的价值会让我觉得很荣幸。
+
+  我具备前端、后端、项目管理、售前、运维等相关经历，目前主要致力于云原生和 DevOps。
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+- name: Email
+  icon: "fas fa-envelope"
+  url: "jerry@mydream.ink"
+
+- name: Github
+  icon: "fab fa-github"
+  url: "https://github.com/canovie"
+
+- name: Twitter
+  icon: "fab fa-twitter"
+  url: "https://twitter.com/_canovie"
+
+- name: Facebook
+  icon: "fab fa-facebook"
+  url: "https://www.facebook.com/canovie"
+
+# your soft skills
+# give the percentage between 50 to 100 with 5 intervals.
+# currently supported colors: blue, yellow, pink, green, sky, orange
+softSkills:
+- name: 主动性
+  percentage: 100
+  color: yellow
+- name: 学习力
+  percentage: 90
+  color: sky
+- name: 解决问题
+  percentage: 90
+  color: orange
+- name: 团队建设
+  percentage: 85
+  color: green
+- name: 全面性
+  percentage: 80
+  color: blue
+- name: 交流
+  percentage: 80
+  color: pink
+# you can also provide color code instead of pre-defined color name
+# - name: Example 1
+#   percentage: 75
+#   color: "#00adb5"
+# - name: Example 2
+#   percentage: 65
+#   color: "#8b8383"

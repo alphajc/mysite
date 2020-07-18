@@ -1,0 +1,21 @@
+# section information
+section:
+  name: Achievements
+  title: 成就
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# Your achievements achievements
+achievements:
+- title: Excellent
+  image: assets/images/achievements/excellent.jpg
+  summary: 自 2019 年 11 月在荔枝微课转正以来，连续两个月在季度评价中荣获 A 级，并顺利晋升
+- title: Raise
+  image: assets/images/achievements/raise.jpg
+  summary: 2018 年 6 月在容联七陌年中获得唯一的非管理岗的加薪机会
+- title: Graduation
+  image: assets/images/achievements/graduation-cap.jpg
+  summary: 2017 年 7 月以 GPA 年级前 5% 的优异成绩毕业于南昌航空大学软件工程专业
