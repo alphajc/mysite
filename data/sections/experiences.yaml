@@ -17,7 +17,7 @@ experiences:
     # company overview
     overview: 荔枝微课，是一个免费使用的在线教育平台，一个⼤众知识分享平台
   positions:
-  - designation: 高级运维开发工程师
+  - designation: SRE 工程师
     start: 2019 年 8 月
     responsibilities:
     - 制订并实施云原生改造和落地方案
