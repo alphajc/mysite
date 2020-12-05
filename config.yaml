@@ -27,7 +27,7 @@ params:
   background: "assets/images/background.jpg"
 
   # GitHub repo URL of your site
-  gitRepo: https://github.com/canovie/mysite
+  gitRepo: https://github.com/alphajc/mysite
 
   # specify whether you want to write blog post or not
   enableBlogPost: true

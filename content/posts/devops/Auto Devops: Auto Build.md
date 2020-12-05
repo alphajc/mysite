@@ -36,7 +36,7 @@ description: "gitlab 作为代码仓库，连接 kubernetes 中的 gitlab-runner
 
 与其它类型的 executor 一样，kubernetes 也需要根据 gitlab 仓库的 url 和 token 对 runner 进行注册方可使用。注册后会有一个常驻的 pod （我姑且叫它 runner 服务端）对来自于 gitlab 的 pipeline 任务进行监听，当监听到有新的任务需要执行时，就会创建新的 pipeline 跑 `.gitlab-ci.yml` 上对应的job。所以 runner 服务端相关联的 ServieAccount 一定需要具备对应的 namespace 的 pod 的创建的权限。
 
-配置一个 runner 有多种方式，包括启动参数、环境变量、配置文件等。这其中配置文件的功能最强，参数可配置项较环境变量稍多（或许它们具有相同的能力，只是我没有发现，如果你知道欢迎帮忙补充）。通过`gitlab-runner help register`命令我们可以找到所有的启动参数和环境变量，参数与环境变量之间的关系请参照[参数与环境变量对照表](https://gist.github.com/canovie/e2c19fa624ccc29fb3af0803e9afcb22)。
+配置一个 runner 有多种方式，包括启动参数、环境变量、配置文件等。这其中配置文件的功能最强，参数可配置项较环境变量稍多（或许它们具有相同的能力，只是我没有发现，如果你知道欢迎帮忙补充）。通过`gitlab-runner help register`命令我们可以找到所有的启动参数和环境变量，参数与环境变量之间的关系请参照[参数与环境变量对照表](https://gist.github.com/alphajc/e2c19fa624ccc29fb3af0803e9afcb22)。
 
 ### runner 的集群中权限
 

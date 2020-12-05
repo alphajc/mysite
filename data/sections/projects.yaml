@@ -33,14 +33,14 @@ projects:
 - name: SMTP Send
   role: 维护者
   timeline: "2019年11月 - 现在"
-  repo: https://github.com/canovie/smtp-send
+  repo: https://github.com/alphajc/smtp-send
   summary: 一个功能丰富的邮件发送工具，原为 DevOps 场景下邮件自动发送而设计
   tags: ["professional", "hobby"]
 
 - name: HTML to Markdown
   role: 维护者
   timeline: "2019年6月 - 2019年7月"
-  repo: https://github.com/canovie/h2md
+  repo: https://github.com/alphajc/h2md
   summary: 可将html中正文部分转化为markdown文件，可用于常见的博客网站
   tags: ["hobby"]
 

@@ -25,7 +25,7 @@ Mac 安装 Docker 的方法不再赘述，很简单，[官方下载](https://dow
 
 ![About Version](/assets/images/posts/cloud-native/k8s_from_docker.png)
 
-使用[以下脚本](https://gist.github.com/canovie/ad56aa01da685d665c856551c4d18baf")，记得将镜像版本改成你所需要的:maple_leaf:
+使用[以下脚本](https://gist.github.com/alphajc/ad56aa01da685d665c856551c4d18baf")，记得将镜像版本改成你所需要的:maple_leaf:
 
 ```bash
 #!/bin/bash

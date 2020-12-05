@@ -14,7 +14,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   local_dir: public
-  repo: canovie/canovie.github.io
+  repo: alphajc/alphajc.github.io
   target_branch: master
   committer_from_gh: true
   on:

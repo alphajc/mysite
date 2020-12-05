@@ -31,15 +31,15 @@ socialLinks:
 
 - name: Github
   icon: "fab fa-github"
-  url: "https://github.com/canovie"
+  url: "https://github.com/alphajc"
 
 - name: Twitter
   icon: "fab fa-twitter"
-  url: "https://twitter.com/_canovie"
+  url: "https://twitter.com/_alphajc"
 
 - name: Facebook
   icon: "fab fa-facebook"
-  url: "https://www.facebook.com/canovie"
+  url: "https://www.facebook.com/alphajc"
 
 # your soft skills
 # give the percentage between 50 to 100 with 5 intervals.
