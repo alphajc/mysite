@@ -19,10 +19,11 @@ experiences:
   positions:
   - designation: SRE 工程师
     start: 2019 年 8 月
+    end: 2021 年 4 月
     responsibilities:
     - 制订并实施云原生改造和落地方案
     - 使用 DevOps 工具链落地 DevOps 解决方案，设计并开发自动化运维工具
-    - 业务运维
+    - 基础设施运维
     - CMDB 建设
 
 - company:

@@ -221,19 +221,19 @@ helm install -g -n kube-public -f custom.yaml . # 此处使用的是 helm3
 
 5. 查看效果
 
-    __行内注释__
+    **行内注释**
 
     ![行内注释](/assets/images/posts/devops/inline-comment.png)
 
-    __全局注释__
+    **全局注释**
 
     ![全局注释](/assets/images/posts/devops/global-comment.png)
 
-    __sonarqube 控制台列表__
+    **sonarqube 控制台列表**
 
     ![sonarqube 控制台列表](/assets/images/posts/devops/sonarqube-items.png)
 
-    __sonarqube 控制台详情__
+    **sonarqube 控制台详情**
 
     ![sonarqube 控制台详情](/assets/images/posts/devops/sonarqube-detail.png)
 

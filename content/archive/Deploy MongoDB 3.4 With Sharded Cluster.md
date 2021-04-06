@@ -95,27 +95,27 @@ IP分配：
 
 分别在每台机器上启动的设计的分片（例见上图）shardxx、shardxx、shardxx。（非第一次启动加`--logappend`）
 
-__#Shard01__：
+**#Shard01**：
 
     mongod --shardsvr --replSet shard01 --port 18001 --dbpath /home/ubuntu/data/mongodb/shard01/data --logpath /home/ubuntu/data/mongodb/shard01/log/shard01.log --fork
 
-__#Shard02__：
+**#Shard02**：
 
     mongod --shardsvr --replSet shard02 --port 18002 --dbpath /home/ubuntu/data/mongodb/shard02/data --logpath /home/ubuntu/data/mongodb/shard02/log/shard02.log --fork
 
-__#Shard03__：
+**#Shard03**：
 
     mongod --shardsvr --replSet shard03 --port 18003 --dbpath /home/ubuntu/data/mongodb/shard03/data --logpath /home/ubuntu/data/mongodb/shard03/log/shard03.log --fork
 
-__#Shard04__：
+**#Shard04**：
 
     mongod --shardsvr --replSet shard04 --port 18004 --dbpath /home/ubuntu/data/mongodb/shard04/data --logpath /home/ubuntu/data/mongodb/shard04/log/shard04.log --fork
 
-__#Shard05__：
+**#Shard05**：
 
     mongod --shardsvr --replSet shard05 --port 18005 --dbpath /home/ubuntu/data/mongodb/shard05/data --logpath /home/ubuntu/data/mongodb/shard05/log/shard05.log --fork
 
-__#Shard06__：
+**#Shard06**：
 
     mongod --shardsvr --replSet shard06 --port 18006 --dbpath /home/ubuntu/data/mongodb/shard06/data --logpath /home/ubuntu/data/mongodb/shard06/log/shard06.log --fork
 
@@ -129,7 +129,7 @@ __#Shard06__：
 
 在任一机器（机器上有对应shardxx即可，可在1、4号机器），通过分片端口登陆分片，并初始化分片
 
-__#Shard01__：
+**#Shard01**：
 
     mongo 127.0.0.1:18001
 
@@ -147,7 +147,7 @@ __#Shard01__：
 
     > rs.initiate(config)
 
-__#Shard02__：
+**#Shard02**：
 
     mongo 127.0.0.1:18002
 
@@ -165,7 +165,7 @@ __#Shard02__：
 
     > rs.initiate(config)
 
-__#Shard03__：
+**#Shard03**：
 
     mongo 127.0.0.1:18003
 
@@ -183,7 +183,7 @@ __#Shard03__：
 
     > rs.initiate(config)
 
-__#Shard04__：
+**#Shard04**：
 
     mongo 127.0.0.1:18004
 
@@ -201,7 +201,7 @@ __#Shard04__：
 
     > rs.initiate(config)
 
-__#Shard05__：
+**#Shard05**：
 
     mongo 127.0.0.1:18005
 
@@ -219,7 +219,7 @@ __#Shard05__：
 
     > rs.initiate(config)
 
-__#Shard06__：
+**#Shard06**：
 
     mongo 127.0.0.1:18006
 

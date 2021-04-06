@@ -22,7 +22,7 @@ http 协议是一个全明文传输的协议，不加任何处理的 http 报文
 
 但是 Let’s Encrypt 颁发的证书有个特点，有效期只有三个月。这意味着我们需要频繁续期证书，倘若手动续期，无疑会增加运维成本。有什么方式可以为我们自动颁发证书吗？当然有！[ACME](https://tools.ietf.org/html/rfc8555) 无疑就是我们的最佳选择。
 
-有一款很好用的 ACME 客户端叫 [Certbot](https://certbot.eff.org/about/)，可以帮助自动颁发、续期证书。在 kubernetes 的生态中有没有什么好的工具能帮助我们非常方便地使用证书么？当然有，那就是本期主题——[__cert-manager__](https://docs.cert-manager.io/en/latest/)。
+有一款很好用的 ACME 客户端叫 [Certbot](https://certbot.eff.org/about/)，可以帮助自动颁发、续期证书。在 kubernetes 的生态中有没有什么好的工具能帮助我们非常方便地使用证书么？当然有，那就是本期主题——[**cert-manager**](https://docs.cert-manager.io/en/latest/)。
 
 cert-manager 是本地 Kubernetes 证书管理控制器。它可以帮助从各种来源颁发证书，例如 Let's Encrypt，HashiCorp Vault，Venafi，简单的签名密钥对或自签名。它将确保证书有效并且是最新的，并在到期前尝试在配置的时间续订证书。
 

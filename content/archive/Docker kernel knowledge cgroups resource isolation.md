@@ -305,7 +305,7 @@ uid 和 gid 分别表示所属的用户和用户组。
     7. **blkio.io_service_time**：统计 cgroup 对特定设备的 IO 操作（包括 read、write、sync 及 async）时间 (单位为 ns)，格式`device_types:node_numbers operation time`
     8. **blkio.io_merged**：统计 cgroup 将 BIOS 请求合并到 IO 操作（包括 read、write、sync 及 async）请求的次数，格式`number operation`
     9. **blkio.io_wait_time**：统计 cgroup 在各设​​​备​​​中各类型​​​IO 操作（包括 read、write、sync 及 async）在队列中的等待时间​(单位 ns)，格式`device_types:node_numbers operation time`
-    10. __blkio.__recursive_*：各类型的统计都有一个递归版本，Docker 中使用的都是这个版本。获取的数据与非递归版本是一样的，但是包括 cgroup 所有层级的监控数据。
+    10. **blkio.**recursive_*：各类型的统计都有一个递归版本，Docker 中使用的都是这个版本。获取的数据与非递归版本是一样的，但是包括 cgroup 所有层级的监控数据。
 
 
 ### （2） cpu - CPU 资源控制
