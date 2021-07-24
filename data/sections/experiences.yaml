@@ -11,6 +11,19 @@ section:
 # Your experiences
 experiences:
 - company:
+    name: 腾讯
+    url: "https://www.tencent.com"
+    location: 广东深圳
+    # company overview
+    overview: 腾讯以技术丰富互联网用户的生活。
+  positions:
+  - designation: 高级 SRE 工程师
+    start: 2021 年 4 月
+    responsibilities:
+    - 容器服务研发
+    - 容器产品质量建设
+
+- company:
     name: 荔枝微课
     url: "https://www.lizhiweike.com"
     location: 广东深圳
