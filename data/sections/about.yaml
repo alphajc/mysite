@@ -7,11 +7,11 @@ section:
   showOnNavbar: true
 
 # your designation
-designation: SRE 工程师
+designation: 高级 SRE 工程师
 # your company information
 company:
-  name: 荔枝微课
-  url: "https://www.lizhiweike.com"
+  name: Tencent
+  url: "https://www.tencent.com"
 
 # your resume. this file path should be relative to you "static" directory
 resume: "files/resume.pdf"
