@@ -9,8 +9,9 @@ addons:
 #   - brew install hugo
 
 script: hugo
+
 deploy:
-  provider: pages
+- provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   local_dir: public
@@ -19,3 +20,11 @@ deploy:
   committer_from_gh: true
   on:
     branch: master
+- provider: s3
+  access_key_id: $SECRET_ID
+  secret_access_key: $SECRET_KEY
+  bucket: $S3_BUCKET
+  skip_cleanup: true
+  local_dir: public
+  region: ap-chengdu
+  endpoint: $S3_ENDPOINT
