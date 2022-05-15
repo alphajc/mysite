@@ -17,11 +17,10 @@ experiences:
     # company overview
     overview: 腾讯以技术丰富互联网用户的生活。
   positions:
-  - designation: 高级 SRE 工程师
+  - designation: 后台开发
     start: 2021 年 4 月
     responsibilities:
-    - 容器服务研发
-    - 容器产品质量建设
+    - TKE 集群生命周期管理
 
 - company:
     name: 荔枝微课

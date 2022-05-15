@@ -13,15 +13,23 @@ section:
 skills:
 - name: Kubernetes
   icon: "assets/images/skills/kubernetes.png"
-  summary: "具备 Kubernetes 的部署和管理能力，有集群项目迁移经验和部署方案设计经验。熟悉社区版 Kubernetes 的各种资源并了解其最佳实践， 目前是腾讯云 TKE 的用户。"
+  summary: "具备 Kubernetes 的部署和管理能力，有集群项目迁移经验和部署方案设计经验。熟悉 informer 原理、controller 开发等， 目前是腾讯云 TKE 开发者。"
+
+- name: Go
+  icon: "assets/images/skills/go.png"
+  summary: "目前主力开发语言，从要从事 kubernetes 相关的开发工作。"
+
+- name: Python
+  icon: "assets/images/skills/python.svg"
+  summary: "目前的主力语言，主要是使用其开发自动化运维工具以及 CMDB 平台建设。"
+
+- name: Node.js
+  icon: "assets/images/skills/nodejs.svg"
+  summary: "在开发 Triton 项目的时候，有一年多的 Node.js 的开发经验，可熟练阅读相关代码以及使用该语言进行开发。"
 
 - name: Docker
   icon: "assets/images/skills/docker.svg"
   summary: "Docker 相关的性能优化，包括镜像拉取加速、构建加速、最小化镜像等，有多阶段构建及镜像漏洞扫描等经验。"
-
-- name: Python 开发
-  icon: "assets/images/skills/python.svg"
-  summary: "目前的主力语言，主要是使用其开发自动化运维工具以及 CMDB 平台建设。"
 
 - name: 云计算
   icon: "assets/images/skills/cloud.png"
@@ -38,12 +46,4 @@ skills:
 - name: Ansible
   icon: "assets/images/skills/ansible.svg"
   summary: "熟悉 ansible 的使用，有 role 的编写和 module 的开发经验"
-
-- name: Node.js
-  icon: "assets/images/skills/nodejs.svg"
-  summary: "在开发 Triton 项目的时候，有一年多的 Node.js 的开发经验，可熟练阅读相关代码以及使用该语言进行开发。"
-
-- name: Istio
-  icon: "assets/images/skills/istio.svg"
-  summary: "熟悉 Istio 的主要资源，如 `Vitual Service`、`Gateway`、`Destination Rule`、`Service Entry` 等，并对 Envoy 有一定的了解。"
 

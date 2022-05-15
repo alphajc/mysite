@@ -19,28 +19,27 @@ buttons:
 
 # your projects
 projects:
-- name: Triton
-  logo: assets/images/projects/joyent.svg
+- name: Cluster Autoscaler
+  logo: assets/images/projects/kubernetes.png
   role: 开发者
-  timeline: "2017年1月 - 2018年3月"
-  repo: https://github.com/joyent/triton
+  repo: https://github.com/kubernetes/autoscaler
   #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-  summary: 以 ZFS 实现的软件定义存储的存储方案、Solaris Zone 和 LXC 作为容器方案、并支持 KVM 的 IaaS 平台。
+  summary: autoscaler/cluster-autoscaler，是一个结合 cloudprovider 自动调整 kubernetes 集群节点数量的组件
   tags: ["professional", "cloud"]
 
-- name: SMTP Send
-  role: 维护者
-  timeline: "2019年11月 - 现在"
-  repo: https://github.com/alphajc/smtp-send
-  summary: 一个功能丰富的邮件发送工具，原为 DevOps 场景下邮件自动发送而设计，提供了正文渲染、命令行参数、环境变量等功能
-  tags: ["professional", "hobby"]
+- name: Cloud Controller Manager
+  logo: assets/images/projects/kubernetes.png
+  role: 开发者
+  repo: https://github.com/TencentCloud/tencentcloud-cloud-controller-manager
+  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: 云服务商专用 kubernetes 控制器，见节点控制器、路由控制器及部分其它功能
+  tags: ["professional", "cloud"]
 
-- name: Cheetah
-  role: 维护者
-  timeline: "2020年12月 - 至今"
-  repo: https://github.com/alphajc/cheetah
-  summary: 我在荔枝微课组建了十方教育跑团，并推出积分制运营，该工具会定时从悦跑圈拉取数据并用作积分统计，根据预置规则生成积分并排名
-  tags: ["hobby"]
+- name: Kubernetes
+  logo: assets/images/projects/kubernetes.png
+  repo: https://github.com/kubernetes/kubernetes
+  summary: 一个开源系统，用于跨多个主机管理容器化的应用程序。它提供了用于部署，维护和扩展应用程序的基本机制
+  tags: ["hobby", "professional"]
 
 - name: Istio
   logo: assets/images/projects/istio.svg
@@ -48,11 +47,17 @@ projects:
   summary: 一个可提供统一的方式来集成微服务、管理跨微服务流量、执行策略和汇总遥测数据的开放平台，常用于 kubernetes 的服务治理
   tags: ["hobby", "professional"]
 
-- name: Kubernetes
-  logo: assets/images/projects/kubernetes.png
-  repo: https://github.com/kubernetes/kubernetes
-  summary: 一个开源系统，用于跨多个主机管理容器化的应用程序。它提供了用于部署，维护和扩展应用程序的基本机制
-  tags: ["hobby", "professional"]
+- name: SMTP Send
+  role: 维护者
+  repo: https://github.com/alphajc/smtp-send
+  summary: 一个功能丰富的邮件发送工具，原为 DevOps 场景下邮件自动发送而设计，提供了正文渲染、命令行参数、环境变量等功能
+  tags: ["professional", "hobby"]
+
+- name: Cheetah
+  role: 维护者
+  repo: https://github.com/alphajc/cheetah
+  summary: 我在荔枝微课组建了十方教育跑团，并推出积分制运营，该工具会定时从悦跑圈拉取数据并用作积分统计，根据预置规则生成积分并排名
+  tags: ["hobby"]
 
 - name: HTML to Markdown
   role: 维护者
