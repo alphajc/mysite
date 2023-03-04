@@ -1,3 +1,6 @@
 [submodule "themes/toha"]
 	path = themes/toha
 	url = https://github.com/alphajc/toha.git
+[submodule "themes/tokiwa"]
+	path = themes/tokiwa
+	url = https://github.com/alphajc/hugo-theme-tokiwa.git

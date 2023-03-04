@@ -1,7 +1,7 @@
 baseURL: https://mydream.ink
 languageCode: zh-cn
 title: 青云卷
-theme: toha
+theme: tokiwa
 
 # Allow raw html in markdown file
 markup:
@@ -56,3 +56,28 @@ params:
     - 我认为兑现自己价值是最让人感到欣喜的事
     - 比努力更难的是不如何努力，所以格局很重要
     - 我不会说做不到，因为我总是能做到
+
+# for tokiwa
+  favicon: assets/images/favicon.png
+  logo: assets/images/logo.png
+  useChineseFonts: true # for font Noto Serif etc.
+  postDateFormat: "2006-1-2"
+
+menu:
+  main:
+  - name: "文章"
+    weight: 1
+    identifier: "posts"
+    url: "/posts/"
+  - name: "标签"
+    weight: 2
+    identifier: "tags"
+    url: "/tags/"
+  - name: "笔记"
+    weight: 3
+    identifier: "notes"
+    url: "https://mydream.ink/notes"
+
+social:
+  twitter: "https://twitter.com/_alphajc"
+  github: "https://github.com/alphajc"
