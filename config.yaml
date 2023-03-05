@@ -58,8 +58,8 @@ params:
     - 我不会说做不到，因为我总是能做到
 
 # for tokiwa
-  favicon: assets/images/favicon.png
-  logo: assets/images/logo.png
+  favicon: /assets/images/favicon.png
+  logo: /assets/images/logo.png
   useChineseFonts: true # for font Noto Serif etc.
   postDateFormat: "2006-1-2"
 
