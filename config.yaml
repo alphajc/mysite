@@ -81,14 +81,10 @@ menu:
     weight: 2
     identifier: "tags"
     url: "/tags/"
-  - name: 归档
+  - name: "笔记"
     weight: 3
-    identifier: "archive"
-    url: "/archive/"
-  # - name: "笔记"
-  #   weight: 4
-  #   identifier: "notes"
-  #   url: "https://mydream.ink/notes"
+    identifier: "notes"
+    url: "https://alphajc.github.io/notes"
 
 markup:
   highlight:
