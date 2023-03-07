@@ -11,6 +11,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    style: monokailight
 
 # Enable Google Analytics
 googleAnalytics: UA-142765126-1
@@ -85,13 +87,6 @@ menu:
     weight: 3
     identifier: "notes"
     url: "https://alphajc.github.io/notes"
-
-markup:
-  highlight:
-    style: monokailight
-  goldmark:
-    renderer:
-      unsafe: true
 
 social:
   twitter: "https://twitter.com/_alphajc"

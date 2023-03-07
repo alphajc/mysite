@@ -2,3 +2,4 @@ public
 .DS_Store
 resources
 config.debug.toml
+.hugo_build.lock
